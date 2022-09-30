@@ -1,0 +1,256 @@
+@charset "ISO-8859-1";
+/**
+ *@access	 public
+ *@author	 Javier E. Ceron Rangel
+ *@version	 20220801-005
+ */
+/* .................................................................................................................. MAIN INI */
+html, body{ margin:0px !important; padding:0px !important; width: 100%; height: 100%; border: 0px !important; overflow: auto !important; }
+html { font-family: Roboto-Regular !important; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 12px;}
+body { background-color: var(--CNTFF); background-repeat: repeat; background-position: top center; text-align: justify; font-family: Roboto-Regular; 
+font-size: 12px; color: #333333; }
+/* .................................................................................................................. MAIN FIN */
+/* ............................................................................................................ SCROLL-BAR INI */
+::-webkit-scrollbar { width: 8px; background-color: rgba(0, 0, 0, 0); -webkit-border-radius: 100px; border-radius: 100px; }
+::-webkit-scrollbar:hover { background-color: rgba(0, 0, 0, 0.09); }
+::-webkit-scrollbar-thumb:vertical { background: rgba(2, 118, 186); -webkit-border-radius: 100px; border-radius: 100px; }
+::-webkit-scrollbar-thumb:vertical:active { background: rgba(0, 154, 217, 0.61); -webkit-border-radius: 100px; border-radius: 100px; }
+/* ............................................................................................................ SCROLL-BAR FIN */
+/* ............................................................................................................ COLORS GUI INI */
+:root {
+	--darkPrimaryColor:#055395; --primaryColor:#0063B1; --lightPrimaryColor:#0077BE; --accentColor:#0062F2; --alertColor:#FF0000;
+	--primaryText:#000000; --secondaryText:#727272; --lightText:#FFFFFF;
+	--lightColor:#FBFBFB; --dividerColor:#A0A0A0; --borderColor:#DDDDDD;
+}
+/* ............................................................................................................ COLORS GUI FIN */
+/* ................................................................................................................ STRING INI */
+@font-face { font-family: "Roboto-Regular"; src: url(../assets/fonts/Roboto-Regular.ttf) format("truetype"); }
+@font-face { font-family: "Roboto-Bold"; src: url(../assets/fonts/Roboto-Bold.ttf) format("truetype"); }
+@font-face { font-family: "RobotoCondensed"; src: url(../assets/fonts/RobotoCondensed-Regular.ttf) format("truetype"); }
+@font-face { font-family: "RobotoCondensedBold"; src: url(../assets/fonts/RobotoCondensed-Bold.ttf) format("truetype"); }
+
+.tnrr { font-style: normal; text-decoration: none; font-family: Roboto-Regular; }
+.tnrb { font-style: normal; text-decoration: none; font-family: Roboto-Bold; }
+.tncr { font-style: normal; text-decoration: none; font-family: RobotoCondensed; }
+.tncb { font-style: normal; text-decoration: none; font-family: RobotoCondensedBold; }
+
+.turr { font-style: normal; text-decoration: underline; font-family: Roboto-Regular; }
+.turb { font-style: normal; text-decoration: underline; font-family: Roboto-Bold; }
+.tucr { font-style: normal; text-decoration: underline; font-family: RobotoCondensed; }
+.tucb { font-style: normal; text-decoration: underline; font-family: RobotoCondensedBold; }
+
+.torr { font-style: normal; text-decoration: overline; font-family: Roboto-Regular; }
+.torb { font-style: normal; text-decoration: overline; font-family: Roboto-Bold; }
+.tocr { font-style: normal; text-decoration: overline; font-family: RobotoCondensed; }
+.tocb { font-style: normal; text-decoration: overline; font-family: RobotoCondensedBold; }
+
+.tlrr { font-style: normal; text-decoration: line-through; font-family: Roboto-Regular; }
+.tlrb { font-style: normal; text-decoration: line-through; font-family: Roboto-Bold; }
+.tlcr { font-style: normal; text-decoration: line-through; font-family: RobotoCondensed; }
+.tlcb { font-style: normal; text-decoration: line-through; font-family: RobotoCondensedBold; }
+
+.inrr { font-style: italic; text-decoration: none; font-family: Roboto-Regular; }
+.inrb { font-style: italic; text-decoration: none; font-family: Roboto-Bold; }
+.incr { font-style: italic; text-decoration: none; font-family: RobotoCondensed; }
+.incb { font-style: italic; text-decoration: none; font-family: RobotoCondensedBold; }
+
+.iurr { font-style: italic; text-decoration: underline; font-family: Roboto-Regular; }
+.iurb { font-style: italic; text-decoration: underline; font-family: Roboto-Bold; }
+.iucr { font-style: italic; text-decoration: underline; font-family: RobotoCondensed; }
+.iucb { font-style: italic; text-decoration: underline; font-family: RobotoCondensedBold; }
+
+.iorr { font-style: italic; text-decoration: overline; font-family: Roboto-Regular; }
+.iorb { font-style: italic; text-decoration: overline; font-family: Roboto-Bold; }
+.iocr { font-style: italic; text-decoration: overline; font-family: RobotoCondensed; }
+.iocb { font-style: italic; text-decoration: overline; font-family: RobotoCondensedBold; }
+
+.ilrr { font-style: italic; text-decoration: line-through; font-family: Roboto-Regular; }
+.ilrb { font-style: italic; text-decoration: line-through; font-family: Roboto-Bold; }
+.ilcr { font-style: italic; text-decoration: line-through; font-family: RobotoCondensed; }
+.ilcb { font-style: italic; text-decoration: line-through; font-family: RobotoCondensedBold; }
+
+.s0 { font-size: 9pt; }
+.s1 { font-size: 10pt; }
+.s2 { font-size: 11pt; }
+.s3 { font-size: 12pt; }
+.s4 { font-size: 13pt; }
+.s5 { font-size: 14pt; }
+.s6 { font-size: 15pt; }
+.s7 { font-size: 16pt; }
+.s8 { font-size: 17pt; }
+.s9 { font-size: 18pt; }
+.s10 { font-size: 19pt; }
+.s11 { font-size: 20pt; }
+.s12 { font-size: 21pt; }
+.s13 { font-size: 22pt; }
+.s14 { font-size: 23pt; }
+.s15 { font-size: 24pt; }
+.s16 { font-size: 25pt; }
+.s17 { font-size: 26pt; }
+.s18 { font-size: 27pt; }
+.s19 { font-size: 28pt; }
+.s20 { font-size: 29pt; }
+.s21 { font-size: 30pt; }
+.s22 { font-size: 31pt; }
+.s23 { font-size: 32pt; }
+.s24 { font-size: 33pt; }
+.s25 { font-size: 34pt; }
+/* ................................................................................................................ STRING FIN */
+/* ................................................................................................................ LOADER INI */
+#loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; }
+
+#loader {
+	display: block; position: relative;
+	left: 50%; top: 50%; width: 150px; height: 150px; margin: -75px 0 0 -75px;
+	border-radius: 50%; border: 3px solid transparent; border-top-color: #14539A;
+	-webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+	animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+ 
+#loader:before {
+    content: ""; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px;
+	border-radius: 50%; border: 3px solid transparent; border-top-color: #0063B1;
+	-webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+	animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+ 
+#loader:after {
+    content: ""; position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px;
+	border-radius: 50%; border: 3px solid transparent; border-top-color: #0078D4;
+	-webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+	animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+ 
+@-webkit-keyframes spin {
+    0% {
+		-webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+		-ms-transform: rotate(0deg);  /* IE 9 */
+		transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+	100% {
+		-webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+		-ms-transform: rotate(360deg);  /* IE 9 */
+		transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+		-ms-transform: rotate(0deg);  /* IE 9 */
+		transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+	100% {
+		-webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+		-ms-transform: rotate(360deg);  /* IE 9 */
+		transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+}
+/* <div id="loader-wrapper"><div id="loader"></div></div> */
+/*-------------------------------------------------------------------------------------------------*/
+#square6 {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 47px;
+	width: 47px;
+	margin: -25px 0 0 -25px;
+}
+
+#square6 span {
+	width: 22px;
+	height: 22px;
+	background-color: #000;
+	display: inline-block;
+	-webkit-animation: square6 1.5s infinite ease-in-out both;
+	animation: square6 1.5s infinite ease-in-out both;
+}
+
+#square6 span:nth-child(1) {
+	left: 11px;
+	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
+	background: #d62d20;
+}
+
+#square6 span:nth-child(2) {
+	left: 22px;
+	-webkit-animation-delay: 0.4s;
+	animation-delay: 0.4s;
+	background: #008744;
+}
+
+#square6 span:nth-child(3) {
+	left: 33px;
+	-webkit-animation-delay: 0.6s;
+	animation-delay: 0.6s;
+	background: #0057e7;
+}
+
+#square6 span:nth-child(4) {
+	left: 44px;
+	-webkit-animation-delay: 0.8s;
+	animation-delay: 0.8s;
+	background: #ffa700;
+}
+
+@keyframes square6 {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0);
+				transform: scale(0);
+		-webkit-transform: scale(0);
+				transform: scale(0);
+		opacity: 0;
+	}
+	40% {
+		-webkit-transform: scale(1);
+				transform: scale(1);
+		-webkit-transform: scale(1);
+				transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes square6 {
+	0%, 80%, 100% {
+		-webkit-transform: scale(0);
+				transform: scale(0);
+		opacity: 0;
+	}
+	40% {
+		-webkit-transform: scale(1);
+				transform: scale(1);
+		opacity: 1;
+	}
+}
+/*  <div id="square6"> <span></span> <span></span> <span></span> <span></span> </div> */
+/*-------------------------------------------------------------------------------------------------*/
+div#load_screen {
+	background: #ecefff;
+	opacity: 1;
+	position: fixed;
+	z-index: 999999;
+	top: 0px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+div#load_screen .loader {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+}
+
+div#load_screen .loader-content {
+	right: 0;
+	align-self: center;
+}
+
+.spinner-grow {
+	color: #304aca;
+}
+/* <div id="load_screen"> <div class="loader"> <div class="loader-content"><div class="spinner-grow align-self-center"></div></div></div></div> */
+/* ................................................................................................................ LOADER FIN */

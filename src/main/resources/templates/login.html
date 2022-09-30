@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<!-- Style - CSS -->
+<link rel="stylesheet" type="text/css"
+	href="./resources/css/bootstrap-5.1.3/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="./resources/css/engine.css"></link>
+<link rel="stylesheet" type="text/css" href="./resources/css/index.css"></link>
+
+</head>
+<body>
+	<img class="wave" src="./resources/img/login/wave.svg">
+	<div class="container">
+		<div class="img">
+			<img src="./resources/img/login/undraw_progressive_app_m-9-ms.svg">
+		</div>
+		<div class="login-content">
+			<form action="home">
+				<img src="./resources/img/login/undraw_visual_data_re_mxxo.svg">
+				<h2 class="title tnrb">BIENVENIDO</h2>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>USUARIO</h5>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>CONTRASEÑA</h5>
+						<input type="password" class="input">
+					</div>
+				</div>
+				<a href="#">Olvid&oacute; su contraseña?</a> <input type="submit"
+					class="btnLogin" value="Iniciar Sesión"> <br /> <br />
+				<div class="logo_tmx_sidevar" style="width: auto;"></div>
+			</form>
+		</div>
+	</div>
+
+	<!-- Script - JS -->
+	<script type="text/javascript"
+		src="./resources/js/bootstrap-5.1.3/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./resources/js/index.js"></script>
+</body>
+</html>

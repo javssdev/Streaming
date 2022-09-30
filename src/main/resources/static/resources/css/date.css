@@ -1,0 +1,107 @@
+
+.fade {
+  -webkit-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; } }
+  .fade:not(.show) {
+    opacity: 0; }
+
+.collapse:not(.show) {
+  display: none; }
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.35s ease;
+  -o-transition: height 0.35s ease;
+  transition: height 0.35s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    .collapsing {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; } }
+
+.dropup,
+.dropright,
+.dropdown,
+.dropleft {
+  position: relative; }
+
+.dropdown-toggle {
+  white-space: nowrap; }
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent; }
+  .dropdown-toggle:empty::after {
+    margin-left: 0; }
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem; }
+
+
+
+
+.ftco-section {
+  padding: 7em 0; }
+
+.ftco-no-pt {
+  padding-top: 0; }
+
+.ftco-no-pb {
+  padding-bottom: 0; }
+
+.heading-section {
+  font-size: 28px;
+  color: #000; }
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.datepickers {
+  width: 100%; }
+  .datepickers .label-control {
+    font-size: 14px; }
+  .datepickers .form-control {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px !important;
+    border-radius: 40px;
+    border: none !important;
+    -webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.09) !important;
+    -moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.09) !important;
+    box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.09) !important; }
+    .datepickers .form-control:focus {
+      border-radius: 40px;
+      -webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
+      -moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
+      box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important; }

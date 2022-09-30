@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<title>Dashboard</title>
+</head>
+<body >
+
+	<div th:fragment="menu" class="g-sidenav-show bg-gray-200">
+		<!-- Style - CSS -->
+		<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap-5.1.3/bootstrap.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap-5.1.3/bootstrap-datetimepicker.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/css/date.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/css/argon-dashboard.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/assets/FontAwesome/css/fontawesome.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/assets/FontAwesome/css/all.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/css/engine.css"></link>
+		<link rel="stylesheet" type="text/css" href="./resources/css/index.css"></link>
+		<div
+			class="min-height-300 bg-degradado-primary position-absolute w-100"
+			style="z-index: -1;"></div>
+		<aside
+			class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
+			id="sidenav-main">
+			<div class="sidenav-header">
+				<i
+					class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+					aria-hidden="true" id="iconSidenav"></i> <a
+					class="navbar-brand m-0" href="#" target="_blank"
+					style="display: flex;"><div class="logo_tmx_sidevar"></div> </a>
+					<i class="fa-solid fa-circle-xmark icon-nav-menu-close"></i>
+			</div>
+			<hr class="horizontal dark mt-0">
+			<div class="collapse navbar-collapse  w-auto "
+				id="sidenav-collapse-main">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active" th:href="@{/comparativo_ventas_streaming}">
+							<div
+								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+								<i class="ni fa-solid fa-desktop fs-4"></i>
+							</div> <span class="nav-link-text ms-1 tncr s2">Salud del sistema</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}">
+							<div
+								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+								<i class="ni fa-solid fa-file-contract text-secondary fs-4"></i>
+							</div> <span class="nav-link-text ms-1 tncr s2">Contrataciones
+								vs <br /> Aprovisonamientos
+						</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}">
+							<div
+								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+								<i class="ni fa-solid fa-clipboard-check text-secondary fs-4"></i>
+							</div> <span class="nav-link-text ms-1 tncr s2">Ventas</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link " href="#">
+							<div
+								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+								<i class="ni fa-solid fa-life-ring text-secondary fs-4"></i>
+							</div> <span class="nav-link-text ms-1 tncr s2">Visor
+								de soporte</span>
+					</a></li>
+					<li class="nav-item dropend">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="collapse"
+						href="#multiCollapseExample1" role="button" aria-expanded="false"
+						aria-controls="multiCollapseExample1">
+							<div
+								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+								<i class="ni fa-solid fa-table-list text-secondary fs-4"></i>
+							</div> <span class="nav-link-text ms-1 tncr s2">Cat&aacute;logos</span>
+							<i class="bi bi-chevron-down ms-auto"></i>
+					</a>
+						<div class="collapse multi-collapse" id="multiCollapseExample1">
+							<ul id="list-group">
+								<li class="list-group-item">
+									<a class="nav-link fs-6" th:href="@{/etapas}" > 
+										<span>Etapas</span>
+									</a>
+								</li>
+								<li class="list-group-item">
+									<a class="nav-link fs-6" th:href="@{/errores}" > 
+										<span>Errores</span>
+									</a>
+								</li>
+								<li class="list-group-item">
+									<a class="nav-link fs-6" th:href="@{/conf_msjs}" > 
+										<span>Configuración de Mensajes</span>
+									</a>
+								</li>
+								<li class="list-group-item">
+									<a class="nav-link fs-6" th:href="@{/plataformas}" > 
+										<span>Plataformas</span>
+									</a>
+								</li>
+								<li class="list-group-item">
+									<a class="nav-link fs-6" th:href="@{/productos}" > 
+										<span>Productos</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link " href="#">
+							<div
+								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+								<i class="ni fa-solid fa-life-ring text-secondary fs-4"></i>
+							</div> <span class="nav-link-text ms-1 tncr s2 text-secondary">Visor de soporte</span>
+					</a></li>
+				</ul>
+			</div>
+		</aside>
+
+	</div>
+
+	<div th:fragment="container">
+		<main class="main-container-layout">
+			<!-- Navbar -->
+			<nav
+				class="alpha  navbar navbar-main mt-4 navbar-expand-lg bg-white px-0 mx-4  border-radius-xl"
+				id="navbarBlur" data-scroll="false">
+				<div class="container-fluid py-1 px-3 line-bottom-whites">
+					<i class="fa-solid fa-bars me-3 fs-3 icon-nav-menu-burguer" style="cursor: pointer;"></i>
+					<nav aria-label="breadcrumb">
+						<h6 class="font-weight-bolder text-back mb-0 fs-4">M&oacute;dulo de Aprovisionamiento de Terceros</h6>
+					</nav>
+					<div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
+						id="navbar">
+						<div class="ms-md-auto pe-md-3 d-flex align-items-center"></div>
+						<ul class="navbar-nav  justify-content-end">
+							<li class="nav-item dropdown pe-2 d-flex align-items-center">
+								<a href="javascript:;" class="nav-link text-nav-top fs-5 p-0"
+								id="dropdownMenuButton" data-bs-toggle="dropdown"
+								aria-expanded="false"> <i class="fa fa-bell cursor-pointer"></i>
+							</a>
+								<ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" style="z-index: 10;"
+									aria-labelledby="dropdownMenuButton">
+									<li class="mb-2"><a class="dropdown-item border-radius-md"
+										href="javascript:;">
+											<div class="d-flex py-1">
+												<div class="my-auto">
+													<i class="fa-solid fa-circle me-3"></i>
+												</div>
+												<div class="d-flex flex-column justify-content-center">
+													<h6 class="text-sg font-weight-normal mb-1">
+														<span class="font-weight-bold">Nueva Notificación</span>
+														del sistema
+													</h6>
+													<p class="text-xg text-secondary mb-0">
+														<i class="fa fa-clock me-1"></i> hace 13 minutos
+													</p>
+												</div>
+											</div>
+									</a></li>
+									<li class="mb-2"><a class="dropdown-item border-radius-md"
+										href="javascript:;">
+											<div class="d-flex py-1">
+												<div class="my-auto">
+													<i class="fa-solid fa-circle me-3"></i>
+												</div>
+												<div class="d-flex flex-column justify-content-center">
+													<h6 class="text-sg font-weight-normal mb-1">
+														<span class="font-weight-bold">Nueva Notificación</span>
+														del sistema
+													</h6>
+													<p class="text-xg text-secondary mb-0">
+														<i class="fa fa-clock me-1"></i> hace 30 minutos
+													</p>
+												</div>
+											</div>
+									</a></li>
+								</ul>
+							</li>
+							<li class="nav-item d-flex px-3 align-items-center"><a
+								href="login"
+								class="nav-link text-nav-top font-weight-bold px-0 fs-5"> <i
+									class="fa fa-solid fa-right-from-bracket "></i> <span
+									class="d-sm-inline d-none ">Cerrar Sesión</span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- End Navbar -->
+			<!-- Script - JS -->
+			<script src="./resources/js/libs/jquery.min.js"></script>
+			<script src="./resources/js/libs/popper.js"></script>
+			<script src="./resources/js/libs/popper.min.js"></script>
+			<script src="./resources/js/bootstrap-5.1.3/bootstrap.min.js"></script>
+			<script src="./resources/js/libs/perfect-scrollbar.min.js"></script>
+			<script src="./resources/js/libs/smooth-scrollbar.min.js"></script>
+			<script src="./resources/js/libs/moment-with-locales.min.js"></script>
+			<script src="./resources/js/bootstrap-5.1.3/bootstrap-datetimepicker.min.js"></script>
+			<script src="./resources/js/bootstrap-5.1.3/bootstrap.bundle.min.js"></script>
+			<script src="./resources/js/index.js"></script>
+			<script>
+				var win = navigator.platform.indexOf('Win') > -1;
+				if (win && document.querySelector('#sidenav-scrollbar')) {
+					var options = {
+						damping : '0.5'
+					}
+					Scrollbar.init(document.querySelector('#sidenav-scrollbar'),
+							options);
+				}
+			</script>
+		</main>
+	
+	</div>
+
+	
+</body>
+
+
+</html>
