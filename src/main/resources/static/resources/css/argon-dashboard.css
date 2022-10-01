@@ -10508,7 +10508,7 @@ fieldset:disabled .btn {
 
 /* rtl:end:remove */
 .text-primary {
-  color: #5e72e4 !important;
+  color: #219ae2 !important;
 }
 
 .text-secondary {
@@ -10516,27 +10516,27 @@ fieldset:disabled .btn {
 }
 
 .text-success {
-  color: #2dce89 !important;
+  color: #46ab09 !important;
 }
 
 .text-info {
-  color: #11cdef !important;
+  color: #0077b5 !important;
 }
 
 .text-warning {
-  color: #fb6340 !important;
+  color: #db9f0f !important;
 }
 
 .text-danger {
-  color: #f5365c !important;
+  color: #be1212 !important;
 }
 
 .text-light {
-  color: #e9ecef !important;
+  color: #f0f3f5 !important;
 }
 
 .text-dark {
-  color: #344767 !important;
+  color: #333333 !important;
 }
 
 .text-white {

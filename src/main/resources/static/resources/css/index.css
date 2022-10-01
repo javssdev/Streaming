@@ -249,9 +249,9 @@ a:hover{
 }
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active,
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .ni {
-    color: #3794ba !important;
+    color: #0077b5 !important;
     background: #f0f3f5 !important;
-    box-shadow: 1px 1px 1px #3794ba !important;
+    box-shadow: 1px 1px 1px #0077b5 !important;
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link:hover{
@@ -261,7 +261,7 @@ a:hover{
 }
 .navbar-vertical .navbar-nav>.nav-item .nav-link:hover>.nav-link-text,
 .navbar-vertical .navbar-nav>.nav-item .nav-link:hover>.icon .ni{
-	color: #3794ba !important;
+	color: #0077b5 !important;
 }
 
 
@@ -366,3 +366,38 @@ a:hover{
 	height: 500px;
 }
 /* .................................................................................................................. SALUD SISTEMA FIN */
+
+/* .................................................................................................................. TABLE INI */
+.accordian-body,.show {
+	transition: 0.3s;
+}
+.expand-button {
+	position: relative;
+}
+
+.accordion-toggle .expand-button:after
+{
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  content: '\f068';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1.3rem;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display,inline-block);
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  margin: inherit;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: 0.3s;
+}
+.accordion-toggle.collapsed .expand-button:after
+{
+  content: '\2b';
+}
+/* .................................................................................................................. TABLE FIN */
