@@ -270,7 +270,7 @@ a:hover{
 }
 
 .text-nav-top{
-	color: #52808e !important;
+	color: #333333 !important;
 }
 
 .main-container-layout {
@@ -331,7 +331,7 @@ a:hover{
 
 .table thead tr {
 	/* 	background: #2d6689; */
-	box-shadow: 1px 1px 1px #2d6689;
+	box-shadow: 1px 1px 1px #0077b5;
 }
 
 .table thead tr th {
@@ -375,29 +375,58 @@ a:hover{
 	position: relative;
 }
 
-.accordion-toggle .expand-button:after
-{
-  position: absolute;
-  left: 0.75rem;
-  top: 0;
-  bottom: 0;
-  content: '\f068';
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-size: 1.3rem;
-  -webkit-font-smoothing: antialiased;
-  display: var(--fa-display,inline-block);
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  margin: inherit;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  transition: 0.3s;
+.collapsing {
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s 0.1s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
+
+.accordion-toggle{
+	cursor: pointer;	
+}
+
+.accordion-toggle .expand-button:after {
+	position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    content: '\2b';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    display: var(- -fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: 0.3s;
+    height: 18px;
+    width: 18px;
+    background: #219ae2;
+    color: #f0f3f5;
+    border-radius: 3px;
+}
+
 .accordion-toggle.collapsed .expand-button:after
 {
-  content: '\2b';
+  content: '\f068';
+  background: #333333;
+}
+
+.fa-hexagon{
+	--s: 1.2rem;
+	--m: 0px;
+	width: var(--s);
+    margin: var(--m);
+    background: red;
+    height: calc(var(--s) * 1.1547);;
+    display: inline-block;
+    font-size: initial;
+    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
 }
 /* .................................................................................................................. TABLE FIN */

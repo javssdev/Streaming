@@ -10580,7 +10580,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #5e72e4 !important;
+  background-color: #219ae2 !important;
 }
 
 .bg-secondary {
@@ -10588,27 +10588,27 @@ fieldset:disabled .btn {
 }
 
 .bg-success {
-  background-color: #2dce89 !important;
+  background-color: #46ab09 !important;
 }
 
 .bg-info {
-  background-color: #11cdef !important;
+  background-color: #0077b5 !important;
 }
 
 .bg-warning {
-  background-color: #fb6340 !important;
+  background-color: #db9f0f !important;
 }
 
 .bg-danger {
-  background-color: #f5365c !important;
+  background-color: #be1212 !important;
 }
 
 .bg-light {
-  background-color: #e9ecef !important;
+  background-color: #f0f3f5 !important;
 }
 
 .bg-dark {
-  background-color: #344767 !important;
+  background-color: #333333 !important;
 }
 
 .bg-white {
