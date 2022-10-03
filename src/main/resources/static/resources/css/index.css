@@ -311,23 +311,23 @@ a:hover{
     box-shadow: 0 0 1rem 0 rgb(0 0 0 / 30%) !important;
 }
 
-.table {
-    --bs-table-color: #04173c;
-    --bs-table-bg: transparent;
-    --bs-table-border-color: #e9ecef;
-    --bs-table-accent-bg: transparent;
-    --bs-table-striped-color: #7e9ad3;
-    --bs-table-striped-bg: #219ae20f;
-    --bs-table-active-color: #06070a;
-    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-    --bs-table-hover-color: #1a48a5;
-    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
-    width: 100%;
-    margin-bottom: 1rem;
-    color: var(--bs-table-color);
-    vertical-align: top;
-    border-color: var(--bs-table-border-color);
-}
+/* .table { */
+/*     --bs-table-color: #04173c; */
+/*     --bs-table-bg: transparent; */
+/*     --bs-table-border-color: #e9ecef; */
+/*     --bs-table-accent-bg: transparent; */
+/*     --bs-table-striped-color: #7e9ad3; */
+/*     --bs-table-striped-bg: #219ae20f; */
+/*     --bs-table-active-color: #06070a; */
+/*     --bs-table-active-bg: rgba(0, 0, 0, 0.1); */
+/*     --bs-table-hover-color: #1a48a5; */
+/*     --bs-table-hover-bg: rgba(0, 0, 0, 0.075); */
+/*     width: 100%; */
+/*     margin-bottom: 1rem; */
+/*     color: var(--bs-table-color); */
+/*     vertical-align: top; */
+/*     border-color: var(--bs-table-border-color); */
+/* } */
 
 .table thead tr {
 	/* 	background: #2d6689; */
