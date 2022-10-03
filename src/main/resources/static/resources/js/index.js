@@ -25,7 +25,40 @@ $(".icon-nav-menu-burguer, .icon-nav-menu-close").click(function(){
 	}
 });
 
-$('aside .navbar-nav .nav-item .nav-link').click(function(){
-	$('aside .navbar-nav .nav-item .nav-link').removeClass('active');
-	$(this).addClass('active');
+
+/* ----------------------------------------------------------------INI SELECION MENU */
+$('.menu_s .nav-link').click(function(){
+	if(!$(this).hasClass('dropdown-toggle')){
+		$('.menu_s .nav-link').removeClass("active");
+		$(this).addClass('active');
+		localStorage["page"] = this.id;
+		
+		if(!$(this).parent().parent().parent().parent().children().eq(0).hasClass('dropdown-toggle')){
+			localStorage["list"] = "";
+		}
+	}else{
+		localStorage["list"] = this.id;
+	}
 });
+
+(function() {
+	$('.menu_s .nav-link').removeClass("active");
+	if(localStorage["page"]!=""){
+		$("#" + localStorage["page"]).addClass('active');
+	}else{
+		$('.menu_s .nav-link').removeClass("active");
+	}
+	
+	if(localStorage["list"]!=""){
+		$("#" + localStorage["list"]).removeClass('collapsed');
+		$("#" + localStorage["list"]).attr("aria-expanded","true");
+		$("#" + localStorage["page"]).parent().parent().parent().addClass("show");
+	}
+	
+})();
+
+$("#cerrar_sesion").click(function(){
+	localStorage["page"] = "";
+	localStorage["list"] = "";
+});
+/* ----------------------------------------------------------------FIN SELECION MENU */

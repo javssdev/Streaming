@@ -23,7 +23,7 @@
 			class="min-height-300 bg-degradado-primary position-absolute w-100"
 			style="z-index: -1;"></div>
 		<aside
-			class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
+			class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 menu_s"
 			id="sidenav-main">
 			<div class="sidenav-header">
 				<i
@@ -37,13 +37,13 @@
 			<div class="collapse navbar-collapse  w-auto "
 				id="sidenav-collapse-main">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active" th:href="@{/comparativo_ventas_streaming}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}" id="salud_sistema">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid fa-desktop fs-4"></i>
 							</div> <span class="nav-link-text ms-1 tncr s2">Salud del sistema</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}" id="contrataciones">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid fa-file-contract text-secondary fs-4"></i>
@@ -51,13 +51,13 @@
 								vs <br /> Aprovisonamientos
 						</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/comparativo_ventas_streaming}" id="ventas">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid fa-clipboard-check text-secondary fs-4"></i>
 							</div> <span class="nav-link-text ms-1 tncr s2">Ventas</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link " href="#">
+					<li class="nav-item"><a class="nav-link " href="#" id="visor_soporte">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid fa-life-ring text-secondary fs-4"></i>
@@ -67,7 +67,7 @@
 					<li class="nav-item dropend">
 						<a class="nav-link dropdown-toggle" data-bs-toggle="collapse"
 						href="#multiCollapseExample1" role="button" aria-expanded="false"
-						aria-controls="multiCollapseExample1">
+						aria-controls="multiCollapseExample1" id="catalogos">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid fa-table-list text-secondary fs-4"></i>
@@ -77,34 +77,34 @@
 						<div class="collapse multi-collapse pt-3" id="multiCollapseExample1">
 							<ul id="list-group">
 								<li class="list-group-item">
-									<a class="nav-link fs-6" th:href="@{/etapas}" > 
+									<a class="nav-link fs-6" th:href="@{/etapas}" id="etapas"> 
 										<span>Etapas</span>
 									</a>
 								</li>
 								<li class="list-group-item">
-									<a class="nav-link fs-6" th:href="@{/errores}" > 
+									<a class="nav-link fs-6" th:href="@{/errores}" id="errores"> 
 										<span>Errores</span>
 									</a>
 								</li>
 								<li class="list-group-item">
-									<a class="nav-link fs-6" th:href="@{/conf_msjs}" > 
+									<a class="nav-link fs-6" th:href="@{/conf_msjs}" id="conf_msn"> 
 										<span>Configuración de Mensajes</span>
 									</a>
 								</li>
 								<li class="list-group-item">
-									<a class="nav-link fs-6" th:href="@{/plataformas}" > 
+									<a class="nav-link fs-6" th:href="@{/plataformas}" id="plataformas"> 
 										<span>Plataformas</span>
 									</a>
 								</li>
 								<li class="list-group-item">
-									<a class="nav-link fs-6" th:href="@{/productos}" > 
+									<a class="nav-link fs-6" th:href="@{/productos}" id="productos"> 
 										<span>Productos</span>
 									</a>
 								</li>
 							</ul>
 						</div>
 					</li>
-					<li class="nav-item"><a class="nav-link " href="#">
+					<li class="nav-item"><a class="nav-link " href="#" id="visor_soporte2">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid fa-life-ring text-secondary fs-4"></i>
@@ -174,7 +174,7 @@
 									</a></li>
 								</ul>
 							</li>
-							<li class="nav-item d-flex px-3 align-items-center"><a
+							<li class="nav-item d-flex px-3 align-items-center"><a id="cerrar_sesion"
 								href="login"
 								class="nav-link text-nav-top font-weight-bold px-0 fs-5"> <i
 									class="fa fa-solid fa-right-from-bracket "></i> <span
