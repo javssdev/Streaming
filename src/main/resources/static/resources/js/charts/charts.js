@@ -27,37 +27,37 @@ am5.ready(function() {
 	var colors = chart.get("colors");
 
 	var data = [{
-		country: "Netflix",
+		servicio: "Netflix",
 		visits: 725,
 		icon: "./resources/img/streaming_sprite/001-netflix.svg",
 		columnSettings: { fill: colors.next() }
 	}, {
-		country: "Disney",
+		servicio: "Disney",
 		visits: 625,
 		icon: "./resources/img/streaming_sprite/002-disney-logo.svg",
 		columnSettings: { fill: colors.next() }
 	}, {
-		country: "Start+",
+		servicio: "Start+",
 		visits: 602,
 		icon: "./resources/img/streaming_sprite/003-star-logo.svg",
 		columnSettings: { fill: colors.next() }
 	}, {
-		country: "Hbo+",
+		servicio: "Hbo+",
 		visits: 509,
 		icon: "./resources/img/streaming_sprite/004-hbo.svg",
 		columnSettings: { fill: colors.next() }
 	}, {
-		country: "Prime",
+		servicio: "Prime",
 		visits: 422,
 		icon: "./resources/img/streaming_sprite/005-amazon-prime-video-logo.svg",
 		columnSettings: { fill: colors.next() }
 	}, {
-		country: "Start tv",
+		servicio: "Start tv",
 		visits: 354,
 		icon: "./resources/img/streaming_sprite/006-star.svg",
 		columnSettings: { fill: colors.next() }
 	}, {
-		country: "F1",
+		servicio: "F1",
 		visits: 284,
 		icon: "./resources/img/streaming_sprite/007-f1.svg",
 		columnSettings: { fill: colors.next() }
@@ -67,7 +67,7 @@ am5.ready(function() {
 	// Create axes
 	// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
 	var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-		categoryField: "country",
+		categoryField: "servicio",
 		renderer: am5xy.AxisRendererX.new(root, {
 			minGridDistance: 30
 		}),
@@ -102,7 +102,7 @@ am5.ready(function() {
 		xAxis: xAxis,
 		yAxis: yAxis,
 		valueYField: "visits",
-		categoryXField: "country"
+		categoryXField: "servicio"
 	}));
 
 	series.columns.template.setAll({
