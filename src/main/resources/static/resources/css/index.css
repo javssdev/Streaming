@@ -246,12 +246,13 @@ a:hover{
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active{
 	border-right: 5px solid #3794ba;
+	border-bottom: 1px solid #3794ba;
 }
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active,
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .ni {
     color: #0077b5 !important;
     background: #f0f3f5 !important;
-    box-shadow: 1px 1px 1px #0077b5 !important;
+/*     box-shadow: 1px 1px 1px #0077b5 !important; */
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link:hover{
