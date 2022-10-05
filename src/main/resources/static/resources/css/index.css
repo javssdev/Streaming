@@ -439,7 +439,46 @@ a:hover{
 /* .................................................................................................................. TABLE FIN */
 
 /* .................................................................................................................. GENERAL FIN */
+.text-date-chart{
+	margin: 0 !important;
+}
+.tooltip{
+	font-size: 1rem;
+}
+.box-info-st{
+	font-size: 1.2rem;
+    width: 180px;
+    color: #ccc;
+    border-color: #8392ab8f !important;
+    display: grid;
+    grid-template-columns: 120px 40px;
+}
 
+.box-info-st.border-left-success {
+    border-left: 5px #46ab09 solid !important;
+}
+
+.box-info-st.border-left-danger {
+	position: relative;
+    border-left: 5px #be1212 solid !important;
+    border-color: #be1212 !important;
+}
+.box-info-st.border-left-danger:before {
+    content: '';
+    width: 20px;
+    height: 100%;
+    background: #be1212;
+    position: absolute;
+    z-index: 1;
+}
+
+.box-info-st.border-left-warning {
+    border-left: 5px #db9f0f solid !important;
+}
+
+.box-info-st.bg-box-success {
+    background: #46ab09 !important;
+}
 /* .................................................................................................................. GENERAL FIN */
 
 /* .................................................................................................................. MEDIA INI */
@@ -473,10 +512,16 @@ a:hover{
 }
 
 /* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {  }
+@media (min-width: 992px) { 
+	
+}
 
 /* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) { 
+	.text-date-chart{
+		font-size: 1.2rem !important;
+	}
+}
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {  }

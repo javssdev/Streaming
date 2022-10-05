@@ -59,6 +59,10 @@ $('.menu_s .nav-link').click(function(){
 		$("#" + localStorage["page"]).parent().parent().parent().addClass("show");
 	}
 	
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+				var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+				  return new bootstrap.Tooltip(tooltipTriggerEl)
+				});
 })();
 
 $("#cerrar_sesion").click(function(){
@@ -66,3 +70,10 @@ $("#cerrar_sesion").click(function(){
 	localStorage["list"] = "";
 });
 /* ----------------------------------------------------------------FIN SELECION MENU */
+
+$(document).ready(function() {
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+		return new bootstrap.Tooltip(tooltipTriggerEl)
+	});
+});
