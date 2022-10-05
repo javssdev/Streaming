@@ -209,12 +209,18 @@ a:hover{
 
 .icon-nav-menu-close{
 	transition: 0.3s;
-	position: absolute;
-    left: 7rem;
-    font-size: 4rem;
-    bottom: 12vh;
+    position: absolute;
+    left: 15.5rem;
+    font-size: 1.6rem;
+    top: 0.5rem;
     cursor: pointer;
     display: none;
+    /* z-index: 10000; */
+    /* background: #ffffff; */
+    /* border-radius: 0 10rem 10rem 0; */
+    /* width: 4rem; */
+    /* height: 6rem; */
+    /* text-align: center;*/
 }
 
 .icon-nav-menu-burguer:hover{
