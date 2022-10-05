@@ -20,8 +20,12 @@ inputs.forEach(input => {
 $(".icon-nav-menu-burguer, .icon-nav-menu-close").click(function(){
 	if($('.g-sidenav-show').hasClass('rtl')){
 		$('.g-sidenav-show').removeClass('rtl');
+		$('.main-container-layout').removeClass('rtl');
+		$('.main-container-wk').removeClass('rtl');
 	}else{
 		$('.g-sidenav-show').addClass('rtl');
+		$('.main-container-layout').addClass('rtl');
+		$('.main-container-wk').addClass('rtl');
 	}
 });
 

@@ -23320,19 +23320,21 @@ hr.horizontal.gray-light {
 @media (max-width: 1199.98px) {
   .g-sidenav-show.rtl .sidenav {
 /*     transform: translateX(14.125rem); */
-	transform: translateX(-1.875rem)
+/* 	transform: translateX(-1.875rem) */
+/* 	transform: translateX(-19.125rem); */
   }
 
   .g-sidenav-show:not(.rtl) .sidenav {
     transform: translateX(-19.125rem);
+/* 	transform: translateX(0rem); */
   }
   
   .main-container-layout:not(.rtl){
-  	margin-left: 0 !important;
+  	margin-left: 1.0rem !important;
   }
   
   .main-container-wk:not(.rtl){
-  	margin-left: 1.5rem !important;
+  	margin-left: 2.5rem !important;
   }
   
   .icon-nav-menu-burguer:not(.rtl),
