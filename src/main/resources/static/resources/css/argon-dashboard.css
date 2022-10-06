@@ -73,6 +73,15 @@
   --bs-link-hover-color: #233dd2;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fcf8e3;
+  
+  --color-primary: #219ae2;
+  --color-secondary:#a0a0a0;
+  --color-success: #46ab09;
+  --color-info: #0077b5;
+  --color-warning: #db9f0f;
+  --color-danger:#be1212; 
+  --color-light: #f0f3f5;
+  --color-dark: #333333;
 }
 
 *,

@@ -83,4 +83,15 @@ $(document).ready(function() {
 	var f = new Date();
 	$(".card-header .text-date").html(f.getDate() + " de " + meses[f.getMonth()] + " de "
 		+ f.getFullYear());
+		
+	$(".box-info-st").click(function() {
+		$(".box-info-st").removeClass("active");
+		$(this).addClass("active");
+	});
+	
+	/* **ANIMATE** */
+
+	/* *********** */
+		
+		
 });
