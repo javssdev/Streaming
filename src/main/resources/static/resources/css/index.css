@@ -298,14 +298,14 @@ a:hover{
 
 .main-container-wk .container-static{
 	padding: 0 !important;
-    background: #2c556e;
+    background: #fff;
     height: 100%;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 1rem;
     margin: 0 !important;
-    border: solid 1px #ccc;
+/*     border: solid 1px #ccc; */
 }
 
 .card .card-header {
