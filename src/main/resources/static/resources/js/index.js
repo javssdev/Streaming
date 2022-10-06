@@ -77,6 +77,7 @@ $(document).ready(function() {
 		return new bootstrap.Tooltip(tooltipTriggerEl)
 	});
 	
+	/* INI SALUD_DEL_SISTEMA */
 	var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo",
 		"Junio", "Julio", "Agosto", "Septiembre", "Octubre",
 		"Noviembre", "Diciembre");
@@ -88,10 +89,14 @@ $(document).ready(function() {
 		$(".box-info-st").removeClass("active");
 		$(this).addClass("active");
 	});
+	/* FIN SALUD_DEL_SISTEMA */
 	
-	/* **ANIMATE** */
+	/* INI **VISOR_SOPORTE** */
+	$("table .collapse").click(function(){
+		console.log("Folio: " + $(this).children(2)[1].innerText);
+	});
 
-	/* *********** */
+	/* FIN **VISOR_SOPORTE** */
 		
 		
 });
