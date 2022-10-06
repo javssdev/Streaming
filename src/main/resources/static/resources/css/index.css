@@ -484,6 +484,13 @@ a:hover{
 	border-bottom: 1px solid #be1212 !important;
     opacity: 1 !important;
 }
+
+.card-header .text-date{
+	position: absolute;
+    right: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 /* .................................................................................................................. GENERAL FIN */
 
 /* .................................................................................................................. MEDIA INI */

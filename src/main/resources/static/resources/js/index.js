@@ -76,4 +76,11 @@ $(document).ready(function() {
 	var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
 		return new bootstrap.Tooltip(tooltipTriggerEl)
 	});
+	
+	var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo",
+		"Junio", "Julio", "Agosto", "Septiembre", "Octubre",
+		"Noviembre", "Diciembre");
+	var f = new Date();
+	$(".card-header .text-date").html(f.getDate() + " de " + meses[f.getMonth()] + " de "
+		+ f.getFullYear());
 });
