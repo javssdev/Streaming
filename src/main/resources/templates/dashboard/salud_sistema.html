@@ -56,66 +56,26 @@
 									<thead>
 										<tr>
 											<th width="5px"></th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder ">Folio Intercambio</th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Folio Solicitud</th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Streaming</th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder text-center ps-2">Producto</th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Movimiento</th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Estatus</th>
-											<th class="text-uppercase text-primary fs-6 font-weight-bolder text-center ps-2">Motivo</th>
+											<th class="text-uppercase text-primary tncb s2 text-center">Folio Intercambio</th>
+											<th class="text-uppercase text-primary tncb s2 text-center ps-2">Folio Solicitud</th>
+											<th class="text-uppercase text-primary tncb s2 text-center ps-2">Plataforma</th>
+											<th class="text-uppercase text-primary tncb s2 text-center ps-2">Producto</th>
+											<th class="text-uppercase text-primary tncb s2 text-center ps-2">Movimiento</th>
+											<th class="text-uppercase text-primary tncb s2 text-center ps-2">Estatus</th>
+											<th class="text-uppercase text-primary tncb s2 text-center ps-2">Motivo</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td><span class="text-xg font-weight-bold">01</span></td>
-											<td><span class="text-xg font-weight-bold">00203</span></td>
-											<td><span class="text-xg font-weight-bold">00633</span></td>
-											<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-											<td><span class="text-xg font-weight-bold">AMABN</span></td>
-											<td><span class="text-xg font-weight-bold">Alta</span></td>
-											<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-											<td><span class="text-xg font-weight-bold">En espera de Consumo de G3</span></td>
+										<tr th:each="i, itr: ${#numbers.sequence(1, 5)}">
+											<td align="center"><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">00203</span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">00633</span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">AMAZON</span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">AMABN</span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">Alta</span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">Pendiente</span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center">En espera de Consumo de G3</span></td>
 										</tr>
-										<tr>
-											<td><span class="text-xg font-weight-bold">02</span></td>
-											<td><span class="text-xg font-weight-bold">00203</span></td>
-											<td><span class="text-xg font-weight-bold">00633</span></td>
-											<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-											<td><span class="text-xg font-weight-bold">AMABN</span></td>
-											<td><span class="text-xg font-weight-bold">Alta</span></td>
-											<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-											<td><span class="text-xg font-weight-bold">En espera de Consumo de G3</span></td>
-										</tr>
-										<tr>
-											<td><span class="text-xg font-weight-bold">03</span></td>
-											<td><span class="text-xg font-weight-bold">00203</span></td>
-											<td><span class="text-xg font-weight-bold">00633</span></td>
-											<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-											<td><span class="text-xg font-weight-bold">AMABN</span></td>
-											<td><span class="text-xg font-weight-bold">Alta</span></td>
-											<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-											<td><span class="text-xg font-weight-bold">En espera de Consumo de G3</span></td>
-										</tr>
-										<tr>
-											<td><span class="text-xg font-weight-bold">04</span></td>
-											<td><span class="text-xg font-weight-bold">00203</span></td>
-											<td><span class="text-xg font-weight-bold">00633</span></td>
-											<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-											<td><span class="text-xg font-weight-bold">AMABN</span></td>
-											<td><span class="text-xg font-weight-bold">Alta</span></td>
-											<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-											<td><span class="text-xg font-weight-bold">En espera de Consumo de G3</span></td>
-										</tr>
-										<tr>
-											<td><span class="text-xg font-weight-bold">05</span></td>
-											<td><span class="text-xg font-weight-bold">00203</span></td>
-											<td><span class="text-xg font-weight-bold">00633</span></td>
-											<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-											<td><span class="text-xg font-weight-bold">AMABN</span></td>
-											<td><span class="text-xg font-weight-bold">Alta</span></td>
-											<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-											<td><span class="text-xg font-weight-bold">En espera de Consumo de G3</span></td>
-										</tr>										
 									</tbody>
 								</table>
 							</div>
