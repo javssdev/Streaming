@@ -13,7 +13,7 @@ public class IndexController {
 	public ModelAndView index(ModelAndView m){
 		m.addObject("menu", Cs.MENU);
 		m.addObject("catalogos", Cs.MENU_CAT);
-		m.setViewName("index");
+		m.setViewName("/dashboard/salud_sistema");
 		return m;
 	}
 }

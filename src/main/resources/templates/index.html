@@ -62,7 +62,7 @@
 							<ul id="list-group" th:each="m: ${catalogos}">
 								<li class="list-group-item">
 									<a class="nav-link fs-6" th:href="@{/}+${m.vista}" th:id="${m.id}"> 
-										<span th:text="${m.descripcion}"></span>
+										<span class="tnrr s0" th:text="${m.descripcion}"></span>
 									</a>
 								</li>
 							</ul>

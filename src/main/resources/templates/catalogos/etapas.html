@@ -16,9 +16,15 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="card mb-4">
-						<div class="card-header pb-0">
-							<i class="fa-regular fa-rectangle-list card_header_icon text-primary"></i>
-							<h5 class="text-pr text-primary tncb s6">C&aacute;talogo de Etapas</h5>
+						<div class="card-header pb-0 text-primary">
+							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
+							<h5 class="text-pr text-primary tncb s6">Cat&aacute;logo de Etapa</h5>
+							
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<button type="button" class="btn btn-info m-0"
+									data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+									+</button>
+							</div>
 						</div>
 						<div class="card-body p-4">
 							<div class="table-responsive">
@@ -27,10 +33,10 @@
 									<thead>
 										<tr>
 											<th width="5px"></th>
-											<th class="text-uppercase tncb s4 text-primary ">Clave</th>
-											<th class="text-uppercase text-primary tncb s4 ps-2">Descripci&oacute;n</th>
-											<th class="text-uppercase text-primary tncb s4 ps-2"></th>
-											<th class="text-uppercase text-primary tncb s4 ps-2"></th>
+											<th class="text-uppercase tncb s2 text-primary ">Clave</th>
+											<th class="text-uppercase text-primary tncb s2 ps-2">Descripci&oacute;n</th>
+											<th class="text-uppercase text-primary ps-2" width="50px"></th>
+											<th class="text-uppercase text-primary ps-2" width="50px"></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -38,11 +44,11 @@
 											<td colspan="5" align="center"><span class="tncb s3">- No se encontraron registros -</span></td>
 										</tr>
 										<tr th:if="${list.size() > 0}" th:each="o, itr: ${list}">
-											<td><span class="text-xg tnrr s2" th:text="${count}"></span></td>
-											<td><span class="text-xg tnrr s2" th:text="${o.clave}"></span></td>
-											<td><span class="text-xg tnrr s2" th:text="${o.descripcion}"></span></td>
-											<td><img src="./resources/img/edit.svg" width="20px" /></td>
-											<td><img src="./resources/img/delete.svg" width="20px" /></td>
+											<td><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.clave}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.descripcion}"></span></td>
+											<td align="center"><img src="./resources/img/edit.svg" width="20px" /></td>
+											<td align="center"><img src="./resources/img/delete.svg" width="20px" /></td>
 										</tr>
 									</tbody>
 								</table>
@@ -53,5 +59,64 @@
 			</div>
 		</div>
 	</main>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Alta</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row g-2">
+						<div class="col-md">
+							<div class="form-floating">
+								<input type="email" class="form-control" id="floatingInputGrid"
+									placeholder="name@example.com" value="mdo@example.com">
+								<label for="floatingInputGrid">Email address</label>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="form-floating">
+								<select class="form-select" id="floatingSelectGrid"
+									aria-label="Floating label select example">
+									<option selected>Open this select menu</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select> <label for="floatingSelectGrid">Works with selects</label>
+							</div>
+						</div>
+					</div>
+					<div class="row g-2 mt-2">
+						<div class="col-md">
+							<div class="form-floating mb-3">
+								<input type="email" class="form-control" id="floatingInput"
+									placeholder="name@example.com"> <label
+									for="floatingInput">Email address</label>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="form-floating">
+								<input type="password" class="form-control"
+									id="floatingPassword" placeholder="Password"> <label
+									for="floatingPassword">Password</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary">Aceptar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
