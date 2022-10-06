@@ -22,7 +22,7 @@ am5.ready(function() {
 		layout: root.verticalLayout
 	}));
 
-
+	
 	// Data
 	var colors = chart.get("colors");
 
@@ -30,7 +30,7 @@ am5.ready(function() {
 		servicio: "Netflix",
 		visits: 725,
 		icon: "./resources/img/streaming_sprite/001-netflix.svg",
-		columnSettings: { fill: colors.next() }
+		columnSettings: { fill: ["#A92B1D"] }
 	}, {
 		servicio: "Disney",
 		visits: 625,
@@ -40,12 +40,12 @@ am5.ready(function() {
 		servicio: "Start+",
 		visits: 602,
 		icon: "./resources/img/streaming_sprite/003-star-logo.svg",
-		columnSettings: { fill: colors.next() }
+		columnSettings: { fill: ["#F3B737"] }
 	}, {
 		servicio: "Hbo+",
 		visits: 509,
 		icon: "./resources/img/streaming_sprite/004-hbo.svg",
-		columnSettings: { fill: colors.next() }
+		columnSettings: { fill: ["#29251C"] }
 	}, {
 		servicio: "Prime",
 		visits: 422,
@@ -55,12 +55,12 @@ am5.ready(function() {
 		servicio: "Start tv",
 		visits: 354,
 		icon: "./resources/img/streaming_sprite/006-star.svg",
-		columnSettings: { fill: colors.next() }
+		columnSettings: { fill: ["#5C63CE"] }
 	}, {
 		servicio: "F1",
 		visits: 284,
 		icon: "./resources/img/streaming_sprite/007-f1.svg",
-		columnSettings: { fill: colors.next() }
+		columnSettings: { fill:["#E94936"] }
 	}];
 
 
@@ -77,7 +77,7 @@ am5.ready(function() {
 				sprite: am5.Picture.new(root, {
 					width: 24,
 					height: 24,
-					centerY: am5.p50,
+					centerY: -6,
 					centerX: am5.p50,
 					src: dataItem.dataContext.icon
 				})
@@ -86,7 +86,7 @@ am5.ready(function() {
 	}));
 
 	xAxis.get("renderer").labels.template.setAll({
-		paddingTop: 20
+		paddingTop: 32
 	});
 
 	xAxis.data.setAll(data);
