@@ -1,3 +1,4 @@
+/* ----------------------------------------------------------------INI LOGIN */
 const inputs = document.querySelectorAll(".input");
 
 function addcl(){
@@ -16,7 +17,9 @@ inputs.forEach(input => {
 	input.addEventListener("focus", addcl);
 	input.addEventListener("blur", remcl);
 });
+/* ----------------------------------------------------------------FIN LOGIN */
 
+/* ----------------------------------------------------------------INI SELECION MENU */
 $(".icon-nav-menu-burguer, .icon-nav-menu-close").click(function(){
 	if($('.g-sidenav-show').hasClass('rtl')){
 		$('.g-sidenav-show').removeClass('rtl');
@@ -29,8 +32,6 @@ $(".icon-nav-menu-burguer, .icon-nav-menu-close").click(function(){
 	}
 });
 
-
-/* ----------------------------------------------------------------INI SELECION MENU */
 $('.menu_s .nav-link').click(function(){
 	if(!$(this).hasClass('dropdown-toggle')){
 		$('.menu_s .nav-link').removeClass("active");
@@ -94,8 +95,10 @@ $(document).ready(function() {
 	/* INI **VISOR_SOPORTE** */
 	$("table .collapse").click(function(){
 		console.log("Folio: " + $(this).children(2)[1].innerText);
+		$(".cont-card-cat-etapas").attr("class","col-xl-9 col-md-12 col-sm-12 mb-xl-0 mb-4 cont-card-cat-etapas");
+		$(".cont-card-verif-ent").fadeIn(300);
 	});
-
+	
 	/* FIN **VISOR_SOPORTE** */
 		
 		
