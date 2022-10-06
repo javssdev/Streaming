@@ -23,8 +23,14 @@
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-primary">
 							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
-							<h5 class="text-pr text-primary">Compatrativos de ventas en servicios de
-								Streaming</h5>
+							<h5 class="text-pr text-primary">Compatrativos de ventas en
+								servicios de Streaming</h5>
+							
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<button type="button" class="btn btn-info m-0"
+									data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+									+</button>
+							</div>
 						</div>
 						<div class="card-body p-4">
 							<!-- Chart code -->
@@ -72,7 +78,7 @@
 					<div class="card mb-4">
 						<div class="card-header pb-0 text-primary">
 							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
-							<h5 class="text-pr text-primary">Comportamiento en las ventas por Streaming</h5>
+							<h5 class="text-pr text-primary">Resumen de ventas y operaci&oacute;n</h5>
 						</div>
 						<div class="card-body p-4">
 							<div class="row">
@@ -81,80 +87,62 @@
 										class="table align-items-center justify-content-center mb-0 table-striped table-bordered">
 										<thead>
 											<tr>
-												<th width="5px"></th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder ">Folio
-													Intercambio</th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Folio
-													Solicitud</th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Streaming</th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder text-center ps-2">Producto</th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Movimiento</th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder  ps-2">Estatus</th>
-												<th
-													class="text-uppercase text-primary fs-6 font-weight-bolder text-center ps-2">Motivo</th>
+												<th class="text-uppercase text-dark fs-6 font-weight-bolder ps-2">Streaming</th>
+												<th class="text-uppercase text-dark fs-6 font-weight-bolder ps-2">Venta</th>
+												<th class="text-uppercase text-dark fs-6 font-weight-bolder ps-2">Pendiente</th>
+												<th class="text-uppercase text-dark fs-6 font-weight-bolder ps-2">Canceladas</th>
+												<th class="text-uppercase text-dark fs-6 font-weight-bolder ps-2">Promoci&oacute;n</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td><span class="text-xg font-weight-bold">01</span></td>
-												<td><span class="text-xg font-weight-bold">00203</span></td>
-												<td><span class="text-xg font-weight-bold">00633</span></td>
-												<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-												<td><span class="text-xg font-weight-bold">AMABN</span></td>
-												<td><span class="text-xg font-weight-bold">Alta</span></td>
-												<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-												<td><span class="text-xg font-weight-bold">En
-														espera de Consumo de G3</span></td>
+												<td><span class="text-xg font-weight-bold">NETFLIX</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
 											</tr>
 											<tr>
-												<td><span class="text-xg font-weight-bold">02</span></td>
-												<td><span class="text-xg font-weight-bold">00203</span></td>
-												<td><span class="text-xg font-weight-bold">00633</span></td>
-												<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-												<td><span class="text-xg font-weight-bold">AMABN</span></td>
-												<td><span class="text-xg font-weight-bold">Alta</span></td>
-												<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-												<td><span class="text-xg font-weight-bold">En
-														espera de Consumo de G3</span></td>
+												<td><span class="text-xg font-weight-bold">Disney +</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
 											</tr>
 											<tr>
-												<td><span class="text-xg font-weight-bold">03</span></td>
-												<td><span class="text-xg font-weight-bold">00203</span></td>
-												<td><span class="text-xg font-weight-bold">00633</span></td>
-												<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-												<td><span class="text-xg font-weight-bold">AMABN</span></td>
-												<td><span class="text-xg font-weight-bold">Alta</span></td>
-												<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-												<td><span class="text-xg font-weight-bold">En
-														espera de Consumo de G3</span></td>
+												<td><span class="text-xg font-weight-bold">Star +</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
 											</tr>
 											<tr>
-												<td><span class="text-xg font-weight-bold">04</span></td>
-												<td><span class="text-xg font-weight-bold">00203</span></td>
-												<td><span class="text-xg font-weight-bold">00633</span></td>
-												<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-												<td><span class="text-xg font-weight-bold">AMABN</span></td>
-												<td><span class="text-xg font-weight-bold">Alta</span></td>
-												<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-												<td><span class="text-xg font-weight-bold">En
-														espera de Consumo de G3</span></td>
+												<td><span class="text-xg font-weight-bold">HBO +</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
 											</tr>
 											<tr>
-												<td><span class="text-xg font-weight-bold">05</span></td>
-												<td><span class="text-xg font-weight-bold">00203</span></td>
-												<td><span class="text-xg font-weight-bold">00633</span></td>
-												<td><span class="text-xg font-weight-bold">AMAZON</span></td>
-												<td><span class="text-xg font-weight-bold">AMABN</span></td>
-												<td><span class="text-xg font-weight-bold">Alta</span></td>
-												<td><span class="text-xg font-weight-bold">Pendiente</span></td>
-												<td><span class="text-xg font-weight-bold">En
-														espera de Consumo de G3</span></td>
+												<td><span class="text-xg font-weight-bold">Prime</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+											</tr>
+											<tr>
+												<td><span class="text-xg font-weight-bold">Star tv</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+											</tr>
+											<tr>
+												<td><span class="text-xg font-weight-bold">F1</span></td>
+												<td><span class="text-xg font-weight-bold">20,623</span></td>
+												<td><span class="text-xg font-weight-bold">10,201 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">120 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
+												<td><span class="text-xg font-weight-bold">8,600 <i class="fa-solid fa-magnifying-glass cursor-pointer text-info fs-5 ms-2"></i></span></td>
 											</tr>
 										</tbody>
 									</table>
@@ -243,10 +231,66 @@
 			</div>
 		</div>
 	</main>
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+		data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">Alta</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row g-2">
+						<div class="col-md">
+							<div class="form-floating">
+								<input type="email" class="form-control" id="floatingInputGrid"
+									placeholder="name@example.com" value="mdo@example.com">
+								<label for="floatingInputGrid">Email address</label>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="form-floating">
+								<select class="form-select" id="floatingSelectGrid"
+									aria-label="Floating label select example">
+									<option selected>Open this select menu</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select> <label for="floatingSelectGrid">Works with selects</label>
+							</div>
+						</div>
+					</div>
+					<div class="row g-2 mt-2">
+						<div class="col-md">
+							<div class="form-floating mb-3">
+								<input type="email" class="form-control" id="floatingInput"
+									placeholder="name@example.com"> <label
+									for="floatingInput">Email address</label>
+							</div>
+						</div>
+						<div class="col-md">
+							<div class="form-floating">
+								<input type="password" class="form-control"
+									id="floatingPassword" placeholder="Password"> <label
+									for="floatingPassword">Password</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Cancelar</button>
+					<button type="button" class="btn btn-primary">Aceptar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<SCRIPT>
 		(function($) {
 			"use strict";
-
 			$('.date').datetimepicker({
 				allowInputToggle : true,
 				showClose : true,
@@ -255,26 +299,16 @@
 				format : "MM/DD/YYYY hh:mm:ss A",
 				icons : {
 					time : 'fa fa-clock-o',
-
 					date : 'fa fa-calendar-o',
-
 					up : 'fa fa-chevron-up',
-
 					down : 'fa fa-chevron-down',
-
 					previous : 'fa fa-chevron-left',
-
 					next : 'fa fa-chevron-right',
-
 					today : 'fa fa-chevron-up',
-
 					clear : 'fa fa-trash',
-
 					close : 'fa fa-close'
 				},
-
 			});
-
 		})(jQuery);
 	</script>
 </body>
