@@ -1,12 +1,13 @@
 package com.tmx.dashboard.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -27,6 +28,6 @@ public class Etapas implements Serializable{
 	@Column(name = "STRCEDEETA")
 	private String descripcion;
 
-	@OneToOne(mappedBy = "etapa")
-	private Errores errores;
+	@OneToMany(mappedBy = "etapa")
+	private List<Errores> errores;
 }

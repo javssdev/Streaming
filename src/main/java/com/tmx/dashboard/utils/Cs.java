@@ -10,7 +10,7 @@ public class Cs {
 
 	public static final List<Menu> MENU = new ArrayList<>(Arrays.asList(
 		new Menu("MNU1","Salud del sistema","fa-desktop","salud_sistema"),
-		new Menu("MNU2","Contrataciones vs Aprovisonamientos","fa-ile-contract","cont_vs_aprov"),
+		new Menu("MNU2","Contrataciones vs Aprovisonamientos","fa-file-contract","cont_vs_aprov"),
 		new Menu("MNU3","Ventas","fa-clipboard-check","ventas"),
 		new Menu("MNU4","Visor de soporte","fa-life-ring","visor_soporte")
 	));
