@@ -5,20 +5,28 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:fragment="head">
 	<meta charset="UTF-8">
-	<title>Dashboard</title>
+	<title>Aprovisionamiento de Plataformas de Streaming</title>
+	<!-- Style - CSS -->
+	<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap-5.1.3/bootstrap.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap-5.1.3/bootstrap-datetimepicker.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/css/date.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/css/argon-dashboard.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/assets/FontAwesome/css/fontawesome.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/assets/FontAwesome/css/all.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/css/engine.css"></link>
+	<link rel="stylesheet" type="text/css" href="./resources/css/index.css"></link>
 </head>
 <body >
 
 	<div th:fragment="menu" class="g-sidenav-show bg-gray-200">
-		<!-- Style - CSS -->
-		<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap-5.1.3/bootstrap.min.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap-5.1.3/bootstrap-datetimepicker.min.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/css/date.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/css/argon-dashboard.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/assets/FontAwesome/css/fontawesome.min.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/assets/FontAwesome/css/all.min.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/css/engine.css"></link>
-		<link rel="stylesheet" type="text/css" href="./resources/css/index.css"></link>
+		<!-- LOADING -->
+		<div id="load_screen"
+			style="width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; display: none; background-color: rgba(0, 0, 0, 0.1); z-index: 999999999999999;">
+			<div id="loader-wrapper">
+				<div id="loader"></div>
+			</div>
+		</div>
+
 		<div
 			class="min-height-300 bg-degradado-primary position-absolute w-100"
 			style="z-index: -1;"></div>
@@ -38,7 +46,7 @@
 				id="sidenav-collapse-main">
 				<!-- MENU PRINCIPAL INI -->
 				<ul class="navbar-nav" th:each="m: ${menu}">
-					<li class="nav-item"><a class="nav-link" th:href="@{/}+${m.vista}" th:id="${m.id}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/}+${m.vista}" th:id="${m.id}" onclick="show.loading('show');">
 							<div
 								class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
 								<i class="ni fa-solid text-secondary fs-4" th:classappend="${m.icono}"></i>
@@ -61,7 +69,7 @@
 						<div class="collapse multi-collapse pt-3" id="multiCollapseExample1">
 							<ul id="list-group" th:each="m: ${catalogos}">
 								<li class="list-group-item">
-									<a class="nav-link fs-6" th:href="@{/}+${m.vista}" th:id="${m.id}"> 
+									<a class="nav-link fs-6" th:href="@{/}+${m.vista}" th:id="${m.id}" onclick="show.loading('show');"> 
 										<span class="tnrr s0" th:text="${m.descripcion}"></span>
 									</a>
 								</li>

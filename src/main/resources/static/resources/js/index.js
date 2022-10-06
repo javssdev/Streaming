@@ -100,6 +100,26 @@ $(document).ready(function() {
 	});
 	
 	/* FIN **VISOR_SOPORTE** */
-		
-		
 });
+
+
+var show = (function (){
+	var X99100 = function(){
+		var param = arguments[0];
+		if (param == 'show') {
+			$('#load_screen').show();
+		}else{
+			$('#load_screen').hide();
+		}
+	}
+
+	var X99200 = function(){
+		var param = arguments[0];
+		$('#'+param).modal('show');
+	}
+
+	return{
+		loading: X99100,
+		modal: X99200,
+	}
+})();
