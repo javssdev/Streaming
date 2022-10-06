@@ -245,11 +245,6 @@ a:hover{
     padding: 1.5rem 1rem !important;
 }
 
-.bg-primary{
-    /* background: linear-gradient(90deg, rgba(33,154,226,1) 0%, rgba(173,201,201,1) 35%, rgba(55,148,186,1) 100%); */
-/*     background: linear-gradient(90deg, rgba(33,154,226,1) 0%, rgba(55,148,186,1) 35%, rgba(33,154,226,1) 100%); */
-}
-
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active{
 	border-right: 5px solid #3794ba;
 	border-bottom: 1px solid #3794ba;
@@ -258,7 +253,6 @@ a:hover{
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .ni {
     color: #0077b5 !important;
     background: #f0f3f5 !important;
-/*     box-shadow: 1px 1px 1px #0077b5 !important; */
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link:hover{
@@ -318,26 +312,7 @@ a:hover{
     box-shadow: 0 0 1rem 0 rgb(0 0 0 / 30%) !important;
 }
 
-/* .table { */
-/*     --bs-table-color: #04173c; */
-/*     --bs-table-bg: transparent; */
-/*     --bs-table-border-color: #e9ecef; */
-/*     --bs-table-accent-bg: transparent; */
-/*     --bs-table-striped-color: #7e9ad3; */
-/*     --bs-table-striped-bg: #219ae20f; */
-/*     --bs-table-active-color: #06070a; */
-/*     --bs-table-active-bg: rgba(0, 0, 0, 0.1); */
-/*     --bs-table-hover-color: #1a48a5; */
-/*     --bs-table-hover-bg: rgba(0, 0, 0, 0.075); */
-/*     width: 100%; */
-/*     margin-bottom: 1rem; */
-/*     color: var(--bs-table-color); */
-/*     vertical-align: top; */
-/*     border-color: var(--bs-table-border-color); */
-/* } */
-
 .table thead tr {
-	/* 	background: #2d6689; */
 	box-shadow: 1px 1px 1px #0077b5;
 }
 
@@ -435,6 +410,10 @@ a:hover{
     display: inline-block;
     font-size: initial;
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+}
+
+table tr.collapse {
+	cursor: pointer;
 }
 /* .................................................................................................................. TABLE FIN */
 
