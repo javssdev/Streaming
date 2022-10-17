@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="index :: head"></head>
+	<meta charset="ISO-8859-1">
+	<title></title>
+</head>
+<body>
+	<div th:replace="index :: menu"></div>
+	<div th:replace="index :: container"></div>
+
+	<main class="main-container-wk">
+		<div class="container-fluid padding-none container-static">
+			<div class="row">
+				<div class="col-12">
+					<div class="card mb-4">
+						<div class="card-header pb-0 text-primary">
+							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
+							<h5 class="text-pr text-primary tncb s6">Cat&aacute;logo de Productos</h5>
+							
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<button type="button" class="btn btn-info m-0"
+									data-bs-toggle="modal" data-bs-target="#addModal">
+									+</button>
+							</div>
+						</div>
+						<div class="card-body p-4">
+							<div class="table-responsive">
+								<table class="table align-items-center justify-content-center mb-0 table-striped table-bordered">
+									<thead>
+										<tr>
+											<th width="5px"></th>
+											<th class="text-uppercase text-primary ps-2" width="50px"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:if="${list.size() == 0}">
+											<td colspan="7" align="center"><span class="tncb s3">- No se encontraron registros -</span></td>
+										</tr>
+										<tr th:if="${list.size() > 0}" th:each="o, itr: ${list}">
+											<td><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.telefono}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.nombre}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.correo}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.celular}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.canalVenta}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.oficinaComercial}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.usuarioReg}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.libDB2}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.idCliente}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.idContratacion}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.plataforma}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.itemProd}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.movimiento}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.ordenServicio}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.codigoPromo}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.idTransCanal}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.etapa}"></span></td>
+											<td><span class="text-xg tnrr s1" th:text="${o.estatus}"></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="cont-paginador">
+							<ul class="page">
+							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-chevron-left"></i></li>
+							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-angles-left"></i></i></li>
+							    <li class="page__numbers active"> 1</li>
+							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-angles-right"></i></i></li>
+							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-chevron-right"></i></li>
+							  </ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+</html>

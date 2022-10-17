@@ -5734,9 +5734,9 @@ fieldset:disabled .btn {
 }
 
 .alert-warning {
-  --bs-alert-color: #973b26;
-  --bs-alert-bg: #fee0d9;
-  --bs-alert-border-color: #fed0c6;
+    --bs-alert-color: #664d03;
+    --bs-alert-bg: #fff3cd;
+    --bs-alert-border-color: #ffecb5;
 }
 
 .alert-warning .alert-link {
@@ -20114,21 +20114,21 @@ fieldset:disabled .btn {
   background-image: linear-gradient(310deg, #627594 0%, #8ca1cb 100%);
 }
 
-.alert-success {
-  background-image: linear-gradient(310deg, #2dce89 0%, #26adab 100%);
-}
+/* .alert-success { */
+/*   background-image: linear-gradient(310deg, #2dce89 0%, #26adab 100%); */
+/* } */
 
-.alert-info {
-  background-image: linear-gradient(310deg, #1171ef 0%, #0eadca 100%);
-}
+/* .alert-info { */
+/*   background-image: linear-gradient(310deg, #1171ef 0%, #0eadca 100%); */
+/* } */
 
-.alert-warning {
-  background-image: linear-gradient(310deg, #fb6340 0%, #faa118 100%);
-}
+/* .alert-warning { */
+/*   background-image: linear-gradient(310deg, #fb6340 0%, #faa118 100%); */
+/* } */
 
-.alert-danger {
-  background-image: linear-gradient(310deg, #f5365c 0%, #f3410f 100%);
-}
+/* .alert-danger { */
+/*   background-image: linear-gradient(310deg, #f5365c 0%, #f3410f 100%); */
+/* } */
 
 .alert-light {
   background-image: linear-gradient(310deg, #CED4DA 0%, #d1dae6 100%);
