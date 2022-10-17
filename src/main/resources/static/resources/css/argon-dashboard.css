@@ -10525,27 +10525,27 @@ fieldset:disabled .btn {
 }
 
 .text-success {
-  color: --color-success !important;
+  color: var(--color-success) !important;
 }
 
 .text-info {
-  color: --color-info !important;
+  color: var(--color-info) !important;
 }
 
 .text-warning {
-  color: --color-warning !important;
+  color: var(--color-warning) !important;
 }
 
 .text-danger {
-  color: --color-danger !important;
+  color: var(--color-danger) !important;
 }
 
 .text-light {
-  color: --color-light !important;
+  color: var(--color-light) !important;
 }
 
 .text-dark {
-  color: --color-dark !important;
+  color: var(--color-dark) !important;
 }
 
 .text-white {
