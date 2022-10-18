@@ -10597,27 +10597,27 @@ fieldset:disabled .btn {
 }
 
 .bg-success {
-  background-color: --color-success !important;
+  background-color: var(--color-success) !important;
 }
 
 .bg-info {
-  background-color: --color-info !important;
+  background-color: var(--color-info) !important;
 }
 
 .bg-warning {
-  background-color: --color-warning !important;
+  background-color: var(--color-warning) !important;
 }
 
 .bg-danger {
-  background-color: --color-danger !important;
+  background-color: var(--color-danger) !important;
 }
 
 .bg-light {
-  background-color: --color-light !important;
+  background-color: var(--color-light) !important;
 }
 
 .bg-dark {
-  background-color: --color-dark !important;
+  background-color: var(--color-dark) !important;
 }
 
 .bg-white {
