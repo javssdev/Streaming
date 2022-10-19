@@ -88,7 +88,9 @@ $(document).ready(function() {
 		
 	$(".box-info-st").click(function() {
 		$(".box-info-st").removeClass("active");
+		$(".box-info-st span").removeClass("text-dark");
 		$(this).addClass("active");
+		$(this).children().addClass("text-dark");
 	});
 	/* FIN SALUD_DEL_SISTEMA */
 	
