@@ -4,15 +4,213 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:replace="index :: head"></head>
-	<meta charset="ISO-8859-1">
-	<title></title>
+<meta charset="ISO-8859-1">
+<title></title>
+
 </head>
 <body>
+	<!-- Resources -->
+	<script src="./resources/js/amcharts_5.2.23/index.js"></script>
+	<script src="./resources/js/amcharts_5.2.23/xy.js"></script>
+	<script src="./resources/js/amcharts_5.2.23/themes/Animated.js"></script>
+	
 	<div th:replace="index :: menu"></div>
 	<div th:replace="index :: container"></div>
 	<main class="main-container-wk">
 		<div class="container-fluid padding-none container-static">
+			<div class="row">
+				<div class="col-12">
+					<div class="card mb-4">
+						<div class="card-header pb-0 text-primary">
+							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
+							<h5 class="text-pr text-primary tncb s6">Compatrativos de Ventas en
+								Servicios de Entretenimiento</h5>
+						</div>
+						<div class="card-body p-4">
+							<!-- Chart code -->
+							<script th:inline="javascript">
+							    var dataBar = /*[[${dataBar}]]*/ null;
+							</script>
+							<script src="./resources/js/charts/charts.js"></script>
+
+							<!-- HTML -->
+							<div class="row">
+								<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+									<div id="chartdiv"></div>
+								</div>
+								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center px-5">
+									<br />
+									<h3 class="h5">Selecciona fechas para comparar</h3>
+									<div class="input-group">
+										<div class="w-100">
+											<div class="form-group">
+												<div class="input-group date" id="id_0">
+													<span class="input-group-text">De</span> <input type="text"
+														value="" class="form-control px-3"
+														placeholder="MM/DD/YYYY hh:mm:ss" required />
+												</div>
+												<hr />
+												<div class="input-group date" id="id_1">
+													<span class="input-group-text">Hasta</span> <input
+														type="text" value="" class="form-control px-3"
+														placeholder="MM/DD/YYYY hh:mm:ss" required />
+												</div>
+											</div>
+										</div>
+									</div>
+									<nav class="navbar bg-transparent shadow-none p-0">
+										<div class="container-fluid justify-content-center">
+											<a class="navbar-brand text-info fw-bold fs-5 text-date-chart text-wrap text-center" href="#">del 01 de Enero al 31 de Diciembre 2022</a>
+										</div>
+									</nav>
+									<button type="button" class="btn btn-dark mt-3">APLICAR</button>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-12">
+					<div class="card mb-4">
+						<div class="card-header pb-0 text-primary">
+							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
+							<h5 class="text-pr text-primary tncb s6">Compatrativos de Ventas en
+								Servicios de Entretenimiento</h5>
+						</div>
+						<div class="card-body p-4">
+							<!-- Chart code -->
+							<script th:inline="javascript">
+							    var dataBar = /*[[${dataBar}]]*/ null;
+							</script>
+							<script src="./resources/js/charts/charts.js"></script>
+
+							<!-- HTML -->
+							<div class="row">
+								<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+									<div id="chartdiv"></div>
+								</div>
+								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center px-5">
+									<br />
+									<h3 class="h5">Selecciona fechas para comparar</h3>
+									<div class="input-group">
+										<div class="w-100">
+											<div class="form-group">
+												<div class="input-group date" id="id_0">
+													<span class="input-group-text">De</span> <input type="text"
+														value="" class="form-control px-3"
+														placeholder="MM/DD/YYYY hh:mm:ss" required />
+												</div>
+												<hr />
+												<div class="input-group date" id="id_1">
+													<span class="input-group-text">Hasta</span> <input
+														type="text" value="" class="form-control px-3"
+														placeholder="MM/DD/YYYY hh:mm:ss" required />
+												</div>
+											</div>
+										</div>
+									</div>
+									<nav class="navbar bg-transparent shadow-none p-0">
+										<div class="container-fluid justify-content-center">
+											<a class="navbar-brand text-info fw-bold fs-5 text-date-chart text-wrap text-center" href="#">del 01 de Enero al 31 de Diciembre 2022</a>
+										</div>
+									</nav>
+									<button type="button" class="btn btn-dark mt-3">APLICAR</button>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-12">
+					<div class="card mb-4">
+						<div class="card-header pb-0 text-primary">
+							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
+							<h5 class="text-pr text-primary tncb s6">Comportamiento en las Ventas por Entretenimiento</h5>
+						</div>
+						<div class="card-body p-4">
+							
+							
+							<!-- Chart code -->
+							<script src="./resources/js/charts/controlChart.js"></script>
+
+							<!-- HTML -->
+							<div class="row">
+								<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+									<div id="controlChartdiv"></div>
+								</div>
+								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center px-5">
+									<select class="form-select"
+										aria-label="Default select example">
+										<option selected>Plataformas</option>
+										<option value="1">NETFLIX</option>
+										<option value="2">Disney +</option>
+										<option value="3">Star +</option>
+										<option value="3">HBO +</option>
+										<option value="3">Prime</option>
+										<option value="3">Star tv</option>
+										<option value="3">F1</option>
+									</select>
+									<hr/>
+									<h3 class="h5">Selecciona fechas para comparar</h3>
+									<div class="input-group">
+										<div class="w-100">
+											<div class="form-group">
+												<div class="input-group date">
+													<span class="input-group-text">De</span> <input type="text"
+														value="" class="form-control px-3"
+														placeholder="MM/DD/YYYY hh:mm:ss" required />
+												</div>
+												<hr />
+												<div class="input-group date">
+													<span class="input-group-text">Hasta</span> <input
+														type="text" value="" class="form-control px-3"
+														placeholder="MM/DD/YYYY hh:mm:ss" required />
+												</div>
+											</div>
+										</div>
+									</div>
+									<nav class="navbar bg-transparent shadow-none p-0">
+										<div class="container-fluid justify-content-center">
+											<a class="navbar-brand text-info fw-bold fs-5 text-date-chart text-wrap text-center" href="#">del 01 de Enero al 31 de Diciembre 2022</a>
+										</div>
+									</nav>
+									<button type="button" class="btn btn-dark mt-3">APLICAR</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
 		</div>
 	</main>
+
+	<SCRIPT>
+		(function($) {
+			"use strict";
+			$('.date').datetimepicker({
+				allowInputToggle : true,
+				showClose : true,
+				showClear : true,
+				showTodayButton : true,
+				format : "MM/DD/YYYY hh:mm:ss A",
+				icons : {
+					time : 'fa fa-clock-o',
+					date : 'fa fa-calendar-o',
+					up : 'fa fa-chevron-up',
+					down : 'fa fa-chevron-down',
+					previous : 'fa fa-chevron-left',
+					next : 'fa fa-chevron-right',
+					today : 'fa fa-chevron-up',
+					clear : 'fa fa-trash',
+					close : 'fa fa-close'
+				},
+			});
+		})(jQuery);
+	</script>
 </body>
 </html>

@@ -25,8 +25,10 @@ am5.ready(function() {
 	
 	// Data
 	var colors = chart.get("colors");
-
-	var data = [{
+	
+	console.log(dataBar);
+	var data = dataBar;
+	/*var data = [{
 		servicio: "Netflix",
 		visits: 725,
 		icon: "./resources/img/streaming_sprite/001-netflix.svg",
@@ -61,7 +63,7 @@ am5.ready(function() {
 		visits: 284,
 		icon: "./resources/img/streaming_sprite/007-f1.svg",
 		columnSettings: { fill:["#E94936"] }
-	}];
+	}];*/
 
 
 	// Create axes

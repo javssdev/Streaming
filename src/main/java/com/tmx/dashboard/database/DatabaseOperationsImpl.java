@@ -27,12 +27,16 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 
 	@Override
-	public Long count(Class<T> clazz) {
+	public Long count(Class<T> clazz, Map<String, Object> fields) {
 		Long total = 0L;
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Long> query = builder.createQuery(Long.class);
 		Root<T> r = query.from(clazz);
 		query.select(builder.count(r));
+		if (fields != null) {
+			List<Predicate> predicates = getParametersFilter(builder, r, fields);
+			query.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
+		}
 		total = em.createQuery(query).getSingleResult();
 		return total;
 	}

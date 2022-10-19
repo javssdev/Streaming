@@ -15,6 +15,6 @@ public interface DatabaseOperations<T> {
 	public List<T> find(Class<T> clazz, Map<String, Object> fields, String[] order);
 	public List<T> findAll(Class<T> clazz, String[] order);
 	public T findById(Class<T> clazz, Object ID);
-	public Long count(Class<T> clazz);
+	public Long count(Class<T> clazz, Map<String, Object> fields);
 	/* ................................................................................. GLOBAL DB-CRUD CONFIG - FIN */
 }
