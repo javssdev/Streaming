@@ -123,3 +123,39 @@ var show = (function (){
 		modal: X99200,
 	}
 })();
+
+/* ----------------------------------------------------------------INI CUENTA REGRESIVA */
+//var end = new Date('00/00/0000 9:30 AM');
+const cuentaRegresiva = 1;
+var end = new Date();
+end.setMinutes(end.getMinutes() + cuentaRegresiva); //se le agrega 10 minutos 
+var _second = 1000;
+var _minute = _second * 60;
+var _hour = _minute * 60;
+var _day = _hour * 24;
+var timer;
+
+function showRemaining() {
+	$("#countdown button").removeClass("d-none");
+    var now = new Date();
+    var distance = end - now;
+    
+    if (distance <= 0) {
+        clearInterval(timer);
+        $("#countdown .countdown-text").html('EXPIRED');
+        window.location.reload();
+        //return;
+    }
+    
+    var days = Math.floor(distance / _day);
+    var hours = Math.floor((distance % _day) / _hour);
+    var minutes = Math.floor((distance % _hour) / _minute);
+    var seconds = Math.floor((distance % _minute) / _second);
+	$("#countdown .countdown-text").html('');
+    $("#countdown .countdown-text").html(minutes + 'm:'+seconds + 's');
+}
+
+function initTimer(){
+	timer = setInterval(showRemaining, 1000);
+}
+/* ----------------------------------------------------------------FIN CUENTA REGRESIVA */
