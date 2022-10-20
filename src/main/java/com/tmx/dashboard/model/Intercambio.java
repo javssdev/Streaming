@@ -49,6 +49,9 @@ public class Intercambio implements Serializable{
 	@Column(name = "STRSTSG3")
 	private String estatusG3;
 
+	@Column(name = "STRSTSPLEM")
+	private String estatuPlem;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "STRFHINS")
 	private Date fechaReg = new Date();
@@ -70,6 +73,9 @@ public class Intercambio implements Serializable{
 	
 	@Column(name = "STRNOMBRE")
 	private String nombre;
+	
+	@Column(name = "STRTELEF")
+	private String telefono;
 	
 	@Column(name = "STRCORREO")
 	private String correo;

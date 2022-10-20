@@ -32,7 +32,7 @@ public class SolicitudController {
 	private List<Solicitud> getCatalog(){
 		List<Solicitud> list = new ArrayList<>();
 		try {
-			list = dbo.findAll(Solicitud.class, null);
+			list = dbo.findAll(Solicitud.class, new String[] {"folioSolicitud", "DESC"});
 		} catch (Exception e){
 			e.printStackTrace();
 		}

@@ -33,6 +33,7 @@ public class SaludSistemaController {
 	@Autowired
 	private DatabaseOperations<Parametros> dboParam;
 
+
 	@RequestMapping("/salud_sistema")
 	public ModelAndView init(ModelAndView m){
 		Map<String, Object> totales = getTotales();
@@ -54,23 +55,30 @@ public class SaludSistemaController {
 	public String getData(Model model, @PathVariable("etapa") String etapa){
 		try {
 			List<Solicitud> list = null;
+			List<Intercambio> listInter = null;
 			Map<String, Object> filters;
 			switch(etapa){
 				case Cs.ETA_VAL:
 					filters = new HashMap<>();
 					filters.put("etapa", etapa);
 					list = dboSol.find(Solicitud.class, filters, null);
+					model.addAttribute("list", list);
 					break;
 				case Cs.ETA_GES:
-					list = dboSol.find(Solicitud.class, null, null);
+					filters = new HashMap<>();
+					filters.put("etapa", etapa);
+					listInter = dbo.find(Intercambio.class, filters, null);
+					model.addAttribute("list", listInter);
 					break;
 				case Cs.ETA_ACO:
-					list = dboSol.find(Solicitud.class, null, null);
+					filters = new HashMap<>();
+					filters.put("etapa", etapa);
+					listInter = dbo.find(Intercambio.class, filters, null);
+					model.addAttribute("list", listInter);
 					break;
 				default:
 					break;
 			}
-			model.addAttribute("list", list);
 			model.addAttribute("etapa", etapa);
 			return "/dashboard/salud_sistema :: data";
 		} catch (Exception e) {
@@ -97,17 +105,17 @@ public class SaludSistemaController {
 			//ETAPA ACO
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_ACO);
-			filEta.put("estatusG3", "Pendiente");
+			filEta.put("estatuPlem", "Pendiente");
 			filters.put("ACO", dbo.count(Intercambio.class, filEta));
 			//ETAPA VIN
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_VIN);
-			filEta.put("estatusG3", "Pendiente");
+			//filEta.put("estatusG3", "Pendiente");
 			filters.put("VIN", dbo.count(Intercambio.class, filEta));
 			//ETAPA TER
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_TER);
-			filEta.put("estatusG3", "Pendiente");
+			//filEta.put("estatusG3", "Pendiente");
 			filters.put("TER", dbo.count(Intercambio.class, filEta));
 		} catch (Exception e){
 			e.printStackTrace();
@@ -126,10 +134,13 @@ public class SaludSistemaController {
 			warning = dboParam.find(Parametros.class, filters, null);
 
 			filters = new HashMap<>();
-			filters.put("nombre", Cs.SEMAFORO_AMARILLO+"_"+filtro);
+			filters.put("nombre", Cs.SEMAFORO_ROJO+"_"+filtro);
 			danger = dboParam.find(Parametros.class, filters, null);
 
 			if(!warning.isEmpty() && !danger.isEmpty()){
+				System.err.println("total :: "+total);
+				System.err.println("warning :: "+warning.get(0).getValor().trim());
+				System.err.println("danger :: "+danger.get(0).getValor().trim());
 				if(total.intValue() >= Integer.parseInt(warning.get(0).getValor().trim()) && total < Integer.parseInt(danger.get(0).getValor().trim()))
 					semaforo = "border-left-warning";
 

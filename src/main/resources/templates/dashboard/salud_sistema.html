@@ -40,7 +40,7 @@
 									<span class="text-xg font-weight-bold text-dark text">GESTI&Oacute;N</span>
 									<span class="text-xg font-weight-bold text-dark numeric" th:text="${GES}"></span>
 								</div>
-								<div th:classappend="${CLASE_ACO}"
+								<div th:classappend="${CLASE_ACO}" onclick="retrieveList('ACO')"
 									class="border box-info-st border-left p-3 m-3 col-1 text-center">
 									<span class="text-xg font-weight-bold text">ACOMPA&Ntilde;A</span>
 									<span class="text-xg font-weight-bold numeric" th:text="${ACO}"></span>
@@ -84,6 +84,17 @@
 											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.plataforma}"></span></td>
 											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.movimiento}"></span></td>
 											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.estatus}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.etapa}"></span></td>
+										</tr>
+
+										<tr th:if="${list.size() > 0 and etapa == 'ACO' or etapa == 'GES'}" th:each="o, itr: ${list}">
+											<td><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1" th:text="${o.folioSolicitud}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.telefono}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.correo}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.plataforma}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.movimiento}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.estatusG3}"></span></td>
 											<td align="center"><span class="text-xg tnrr s1 text-center" th:text="${o.etapa}"></span></td>
 										</tr>
 									</tbody>

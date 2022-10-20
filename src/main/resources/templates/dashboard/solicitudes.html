@@ -26,6 +26,7 @@
 									<thead>
 										<tr>
 											<th width="15px"></th>
+											<th class="text-uppercase text-primary ps-2">Folio Solicitud</th>
 											<th class="text-uppercase text-primary ps-2">Cliente</th>
 											<th class="text-uppercase text-primary ps-2 text-center">Usuario</th>
 											<th class="text-uppercase text-primary ps-2 text-center">Canal de Venta</th>
@@ -46,6 +47,7 @@
 										</tr>
 										<tr th:if="${list.size() > 0}" th:each="o, itr: ${list}">
 											<td><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
+											<td align="center"><span class="text-xg tnrr s1" th:text="${o.folioSolicitud}"></span></td>
 											<td>
 												<span class="text-xg tnrr s1" th:text="${o.nombre}"></span><br />
 												<span class="text-xg tnrb s1" th:text="|id - ${o.idCliente}|"></span><br />
