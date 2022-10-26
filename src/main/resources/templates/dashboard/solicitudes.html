@@ -42,10 +42,10 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:if="${list.size() == 0}">
+										<tr th:if="${list.totalPages == 0}">
 											<td colspan="12" align="center"><span class="tncb s3">- No se encontraron registros -</span></td>
 										</tr>
-										<tr th:if="${list.size() > 0}" th:each="o, itr: ${list}">
+										<tr th:if="${list.totalPages > 0}" th:each="o, itr: ${list}">
 											<td><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
 											<td align="center"><span class="text-xg tnrr s1" th:text="${o.folioSolicitud}"></span></td>
 											<td>
@@ -69,15 +69,7 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="cont-paginador">
-							<ul class="page">
-							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-chevron-left"></i></li>
-							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-angles-left"></i></i></li>
-							    <li class="page__numbers active"> 1</li>
-							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-angles-right"></i></i></li>
-							    <li class="page__btn cursor-pointer"><i class="fa-solid fa-chevron-right"></i></li>
-							  </ul>
-							</div>
+							<nav th:replace="paginator-nav :: paginator"></nav>
 						</div>
 					</div>
 				</div>

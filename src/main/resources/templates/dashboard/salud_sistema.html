@@ -58,7 +58,7 @@
 							</div>
 
 							<div id="resultList" th:fragment="data" class="table-responsive">
-								<table th:if="${list.size() != 0}"
+								<table th:if="${list!=null and !list.isEmpty()}"
 									class="table align-items-center justify-content-center mb-0 table-striped table-bordered">
 									<thead>
 										<tr>

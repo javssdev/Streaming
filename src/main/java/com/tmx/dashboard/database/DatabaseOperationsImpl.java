@@ -16,6 +16,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -133,6 +136,29 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 		TypedQuery<T> typedQuery = em.createQuery(criteria);
 		list = typedQuery.getResultList();
 		return list;
+	}
+
+	public Page<T> findAll(Class<T> clazz, String[] order, Pageable pageable) {
+
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+
+		//Total de registros
+		CriteriaQuery<Long> countQuery = builder.createQuery(Long.class);
+		countQuery.select(builder.count(countQuery.from(clazz)));
+		Long count = em.createQuery(countQuery).getSingleResult();
+
+
+		CriteriaQuery<T> criteria = builder.createQuery(clazz);
+		Root<T> root = criteria.from(clazz);
+
+		if (order != null)
+			criteria.orderBy((order[1].equalsIgnoreCase("DESC")) ? builder.desc(root.get(order[0])) : builder.asc(root.get(order[0])));
+
+		TypedQuery<T> typedQuery = em.createQuery(criteria);
+		typedQuery.setFirstResult((int) pageable.getOffset());
+		typedQuery.setMaxResults(pageable.getPageSize());
+
+		return PageableExecutionUtils.getPage(typedQuery.getResultList(), pageable, () -> count);
 	}
 
 	@Override

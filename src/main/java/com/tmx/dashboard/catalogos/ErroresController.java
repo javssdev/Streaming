@@ -1,9 +1,9 @@
 package com.tmx.dashboard.catalogos;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -34,7 +34,7 @@ public class ErroresController {
 
 	@RequestMapping("/errores")
 	public ModelAndView init(ModelAndView m){
-		List<Errores> list = dbo.findAll(Errores.class, null);
+		Page<Errores> list = dbo.findAll(Errores.class, null, null);
 		List<Etapas> listEtapa = dboEtapas.findAll(Etapas.class, null);
 		m.addObject("menu", Cs.MENU);
 		m.addObject("catalogos", Cs.MENU_CAT);
@@ -117,10 +117,10 @@ public class ErroresController {
 		}
 	}
 
-	private List<Errores> getCatalog(){
-		List<Errores> list = new ArrayList<>();
+	private Page<Errores> getCatalog(){
+		Page<Errores> list = null;
 		try {
-			list = dbo.findAll(Errores.class, null);
+			list = dbo.findAll(Errores.class, null, null);
 		} catch (Exception e){
 			e.printStackTrace();
 		}

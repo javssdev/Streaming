@@ -8,13 +8,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.tmx.dashboard.utils.Cs;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @SpringBootApplication(scanBasePackages={"com.tmx.dashboard.*"})
 public class DashboardApplication {
 
 	public static void main(String[] args) {
 		if(!Cs.DEVELOPMENT)
 			System.setProperty("spring.jpa.properties.hibernate.default_schema", getProperty("datasource.schema"));
-		
+
 		SpringApplication.run(DashboardApplication.class, args);
 	}
 
@@ -26,7 +29,7 @@ public class DashboardApplication {
 			p.load(new FileReader(PATH_CC));
 			r = p.getProperty(name_property);
 		} catch (Exception e) {
-			System.err.println("Error FileProperties.getPropertiy : " + e.getMessage());
+			log.warn(Cs.EXCEPTION, "Error FileProperties.getPropertiy : " +e.getMessage());
 		}
 		return r;
 	}

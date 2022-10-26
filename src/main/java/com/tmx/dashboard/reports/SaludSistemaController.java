@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tmx.dashboard.database.DatabaseOperations;
+import com.tmx.dashboard.model.HistoricoSalud;
 import com.tmx.dashboard.model.Intercambio;
 import com.tmx.dashboard.model.Parametros;
 import com.tmx.dashboard.model.Solicitud;
@@ -32,6 +33,9 @@ public class SaludSistemaController {
 
 	@Autowired
 	private DatabaseOperations<Parametros> dboParam;
+
+	@Autowired
+	private DatabaseOperations<HistoricoSalud> dboHistorico;
 
 
 	@RequestMapping("/salud_sistema")
@@ -141,16 +145,32 @@ public class SaludSistemaController {
 				System.err.println("total :: "+total);
 				System.err.println("warning :: "+warning.get(0).getValor().trim());
 				System.err.println("danger :: "+danger.get(0).getValor().trim());
-				if(total.intValue() >= Integer.parseInt(warning.get(0).getValor().trim()) && total < Integer.parseInt(danger.get(0).getValor().trim()))
+				if(total.intValue() >= Integer.parseInt(warning.get(0).getValor().trim()) && total < Integer.parseInt(danger.get(0).getValor().trim())){
 					semaforo = "border-left-warning";
+					addHistorico(filtro, total, "AMARILLO");
+				}
 
-				if(total.intValue() >= Integer.parseInt(danger.get(0).getValor().trim()))
+				if(total.intValue() >= Integer.parseInt(danger.get(0).getValor().trim())){
 					semaforo = "border-left-danger";
+					addHistorico(filtro, total, "ROJO");
+				}
 			}
 		}catch (Exception e){
 			log.warn(Cs.EXCEPTION, e);
 			e.printStackTrace();
 		}
 		return semaforo;
+	}
+
+	private void addHistorico(String etapa, Long cant, String color){
+		try {
+			HistoricoSalud obj = new HistoricoSalud();
+			obj.setEtapa(etapa);
+			obj.setCantidad(cant);
+			obj.setColor(color);
+			dboHistorico.save(obj);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 	}
 }
