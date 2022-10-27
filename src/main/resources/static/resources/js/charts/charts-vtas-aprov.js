@@ -5,6 +5,7 @@ am5.ready(function() {
 
 
 	// Set themes
+	// https://www.amcharts.com/docs/v5/concepts/themes/
 	root.setThemes([
 		am5themes_Animated.new(root)
 	]);
@@ -21,26 +22,15 @@ am5.ready(function() {
 
 
 	// Add legend
-	var legend = chart.children.push(am5.Legend.new(root, {
-		centerX: am5.p50,
-		x: am5.p50
-	}));
+	var legend = chart.children.push(
+		am5.Legend.new(root, {
+			centerX: am5.p50,
+			x: am5.p50
+		})
+	);
+
 	var data = dataBar;
 
-	/*var data = [{
-	  "platform": "Netflix",
-	  "ventas": 2.5,
-	  "aprov": 2.5,
-	}, {
-	  "platform": "Disney",
-	  "ventas": 2.6,
-	  "aprov": 2.7,
-	}, {
-	  "platform": "Start+",
-	  "ventas": 2.8,
-	  "aprov": 2.9,
-	}];
-	*/
 
 	// Create axes
 	var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
@@ -53,17 +43,19 @@ am5.ready(function() {
 	}));
 
 	xAxis.data.setAll(data);
+	chart.get("colors").set("colors", [
+		am5.color("#0077b5"),
+		am5.color("#46ab09")
+	]);
 
 	var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-		min: 0,
 		renderer: am5xy.AxisRendererY.new(root, {})
 	}));
 
 
 	// Add series
-	function makeSeries(name, fieldName, stacked) {
+	function makeSeries(name, fieldName) {
 		var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-			stacked: stacked,
 			name: name,
 			xAxis: xAxis,
 			yAxis: yAxis,
@@ -74,8 +66,9 @@ am5.ready(function() {
 		series.columns.template.setAll({
 			tooltipText: "{name}, {categoryX}:{valueY}",
 			width: am5.percent(90),
-			tooltipY: am5.percent(10)
+			tooltipY: 0
 		});
+
 		series.data.setAll(data);
 
 		// Make stuff animate on load
@@ -83,12 +76,12 @@ am5.ready(function() {
 
 		series.bullets.push(function() {
 			return am5.Bullet.new(root, {
-				locationY: 0.5,
+				locationY: 0,
 				sprite: am5.Label.new(root, {
 					text: "{valueY}",
 					fill: root.interfaceColors.get("alternativeText"),
-					centerY: am5.percent(50),
-					centerX: am5.percent(50),
+					centerY: 0,
+					centerX: am5.p50,
 					populateText: true
 				})
 			});
@@ -97,8 +90,8 @@ am5.ready(function() {
 		legend.data.push(series);
 	}
 
-	makeSeries("Ventas", "ventas", false);
-	makeSeries("Aprovisionamiento", "aprov", true);
+	makeSeries("Ventas", "ventas");
+	makeSeries("Aprovisionamiento", "aprov");
 
 
 	// Make stuff animate on load

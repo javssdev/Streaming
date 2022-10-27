@@ -38,9 +38,9 @@ public class ContAprovController {
 
 	@RequestMapping("/cont_vs_aprov")
 	public ModelAndView init(ModelAndView m){
-		SimpleDateFormat DateFor = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		try {
-			List<GraficaBarras> dataVtasAprov = ventas(DateFor.parse("2022-10-01"), DateFor.parse("2022-10-30"));
+			List<GraficaBarras> dataVtasAprov = ventas(sdf.parse("2022-10-01"), sdf.parse("2022-10-30"));
 			m.addObject("menu", Cs.MENU);
 			m.addObject("catalogos", Cs.MENU_CAT);
 			m.addObject("dataBar", dataVtasAprov);
