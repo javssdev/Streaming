@@ -1,7 +1,8 @@
 package com.tmx.dashboard.catalogos;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -80,10 +81,10 @@ public class PlataformasController {
 		}
 	}
 
-	private Page<Plataformas> getCatalog(){
-		Page<Plataformas> list = null;
+	private List<Plataformas> getCatalog(){
+		List<Plataformas> list = null;
 		try {
-			list = dbo.findAll(Plataformas.class, null, null);
+			list = dbo.findAll(Plataformas.class, null);
 		} catch (Exception e){
 			e.printStackTrace();
 		}

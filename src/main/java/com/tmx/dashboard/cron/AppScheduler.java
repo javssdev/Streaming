@@ -101,27 +101,27 @@ public class AppScheduler {
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_VAL);
 			filEta.put("estatus", "Pendiente");
-			filters.put("VAL", dboSol.count(Solicitud.class, filEta));
+			filters.put("VAL", dboSol.count(Solicitud.class, filEta, null));
 			//ETAPA GES
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_GES);
 			filEta.put("estatusG3", "Pendiente");
-			filters.put("GES", dbo.count(Intercambio.class, filEta));
+			filters.put("GES", dbo.count(Intercambio.class, filEta, null));
 			//ETAPA ACO
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_ACO);
 			filEta.put("estatuPlem", "Pendiente");
-			filters.put("ACO", dbo.count(Intercambio.class, filEta));
+			filters.put("ACO", dbo.count(Intercambio.class, filEta, null));
 			//ETAPA VIN
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_VIN);
 			//filEta.put("estatusG3", "Pendiente");
-			filters.put("VIN", dbo.count(Intercambio.class, filEta));
+			filters.put("VIN", dbo.count(Intercambio.class, filEta, null));
 			//ETAPA TER
 			filEta = new HashMap<>();
 			filEta.put("etapa", Cs.ETA_TER);
 			//filEta.put("estatusG3", "Pendiente");
-			filters.put("TER", dbo.count(Intercambio.class, filEta));
+			filters.put("TER", dbo.count(Intercambio.class, filEta, null));
 		} catch (Exception e){
 			e.printStackTrace();
 		}

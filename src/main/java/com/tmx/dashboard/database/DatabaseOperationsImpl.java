@@ -2,6 +2,7 @@ package com.tmx.dashboard.database;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -30,14 +31,14 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 
 	@Override
-	public Long count(Class<T> clazz, Map<String, Object> fields) {
+	public Long count(Class<T> clazz, Map<String, Object> fields, Object[] between) {
 		Long total = 0L;
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Long> query = builder.createQuery(Long.class);
 		Root<T> r = query.from(clazz);
 		query.select(builder.count(r));
 		if (fields != null) {
-			List<Predicate> predicates = getParametersFilter(builder, r, fields);
+			List<Predicate> predicates = getParametersFilter(builder, r, fields, between);
 			query.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 		}
 		total = em.createQuery(query).getSingleResult();
@@ -65,7 +66,7 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 		if (fields != null) {
 			getParametersUpdate(clazz, criteria, root, entity);
-			List<Predicate> predicates = getParametersFilter(builder, root, fields);
+			List<Predicate> predicates = getParametersFilter(builder, root, fields, null);
 			criteria.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 			status = em.createQuery(criteria).executeUpdate();
 		}
@@ -80,7 +81,7 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 		CriteriaDelete<T> criteria = builder.createCriteriaDelete(clazz);
 		Root<T> root = criteria.from(clazz);
 
-		List<Predicate> predicates = getParametersFilter(builder, root, fields);
+		List<Predicate> predicates = getParametersFilter(builder, root, fields, null);
 		criteria.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 		status = em.createQuery(criteria).executeUpdate();
 		return status;
@@ -111,7 +112,7 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 		Root<T> root = criteria.from(clazz);
 
 		if (fields != null) {
-			List<Predicate> predicates = getParametersFilter(builder, root, fields);
+			List<Predicate> predicates = getParametersFilter(builder, root, fields, null);
 			criteria.where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 		}
 
@@ -167,8 +168,22 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 		return entity;
 	}
 
-	public List<Predicate> getParametersFilter(CriteriaBuilder builder, Root<T> root, Map<String, Object> filters) {
+	public List<Predicate> getParametersFilter(CriteriaBuilder builder, Root<T> root, Map<String, Object> filters, Object[] between) {
 		List<Predicate> predicates = new ArrayList<Predicate>();
+		if(between != null){
+			switch (((String) between[0]).split("_")[0]) {
+			case "DATE":
+				predicates.add(builder.between(root.get(((String) between[0]).split("_")[1]), (Date) between[1], (Date)between[2]));
+				break;
+			case "LONG":
+				predicates.add(builder.between(root.get(((String) between[0]).split("_")[1]), (Long) between[1], (Long)between[2]));
+				break;
+				default:
+					predicates.add(builder.between(root.get(((String) between[0]).split("_")[1]), (String) between[1], (String) between[2]));
+					break;
+			}
+		}
+
 		if (filters != null && !filters.isEmpty()) {
 			filters.forEach((k, v) -> {
 				if((Object)filters.get(k) instanceof String[]){

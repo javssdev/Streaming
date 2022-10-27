@@ -1,19 +1,16 @@
 am5.ready(function() {
 
 	// Create root element
-	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
 	var root = am5.Root.new("chartdiv");
 
 
 	// Set themes
-	// https://www.amcharts.com/docs/v5/concepts/themes/
 	root.setThemes([
 		am5themes_Animated.new(root)
 	]);
 
 
 	// Create chart
-	// https://www.amcharts.com/docs/v5/charts/xy-chart/
 	var chart = root.container.children.push(am5xy.XYChart.new(root, {
 		panX: false,
 		panY: false,
@@ -22,104 +19,89 @@ am5.ready(function() {
 		layout: root.verticalLayout
 	}));
 
-	
-	// Data
-	var colors = chart.get("colors");
-	
-	console.log(dataBar);
-	var data = dataBar;
-	/*var data = [{
-		servicio: "Netflix",
-		visits: 725,
-		icon: "./resources/img/streaming_sprite/001-netflix.svg",
-		columnSettings: { fill: ["#A92B1D"] }
-	}, {
-		servicio: "Disney",
-		visits: 625,
-		icon: "./resources/img/streaming_sprite/002-disney-logo.svg",
-		columnSettings: { fill: colors.next() }
-	}, {
-		servicio: "Start+",
-		visits: 602,
-		icon: "./resources/img/streaming_sprite/003-star-logo.svg",
-		columnSettings: { fill: ["#F3B737"] }
-	}, {
-		servicio: "Hbo+",
-		visits: 509,
-		icon: "./resources/img/streaming_sprite/004-hbo.svg",
-		columnSettings: { fill: ["#29251C"] }
-	}, {
-		servicio: "Prime",
-		visits: 422,
-		icon: "./resources/img/streaming_sprite/005-amazon-prime-video-logo.svg",
-		columnSettings: { fill: colors.next() }
-	}, {
-		servicio: "Start tv",
-		visits: 354,
-		icon: "./resources/img/streaming_sprite/006-star.svg",
-		columnSettings: { fill: ["#5C63CE"] }
-	}, {
-		servicio: "F1",
-		visits: 284,
-		icon: "./resources/img/streaming_sprite/007-f1.svg",
-		columnSettings: { fill:["#E94936"] }
-	}];*/
 
+	// Add legend
+	var legend = chart.children.push(am5.Legend.new(root, {
+		centerX: am5.p50,
+		x: am5.p50
+	}));
+	var data = dataBar;
+
+	/*var data = [{
+	  "platform": "Netflix",
+	  "ventas": 2.5,
+	  "aprov": 2.5,
+	}, {
+	  "platform": "Disney",
+	  "ventas": 2.6,
+	  "aprov": 2.7,
+	}, {
+	  "platform": "Start+",
+	  "ventas": 2.8,
+	  "aprov": 2.9,
+	}];
+	*/
 
 	// Create axes
-	// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
 	var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-		categoryField: "servicio",
+		categoryField: "platform",
 		renderer: am5xy.AxisRendererX.new(root, {
-			minGridDistance: 30
+			cellStartLocation: 0.1,
+			cellEndLocation: 0.9
 		}),
-		bullet: function(root, axis, dataItem) {
-			return am5xy.AxisBullet.new(root, {
-				location: 0.5,
-				sprite: am5.Picture.new(root, {
-					width: 24,
-					height: 24,
-					centerY: -6,
-					centerX: am5.p50,
-					src: dataItem.dataContext.icon
-				})
-			});
-		}
+		tooltip: am5.Tooltip.new(root, {})
 	}));
-
-	xAxis.get("renderer").labels.template.setAll({
-		paddingTop: 32
-	});
 
 	xAxis.data.setAll(data);
 
 	var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+		min: 0,
 		renderer: am5xy.AxisRendererY.new(root, {})
 	}));
 
 
 	// Add series
-	// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-	var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-		xAxis: xAxis,
-		yAxis: yAxis,
-		valueYField: "visits",
-		categoryXField: "servicio"
-	}));
+	function makeSeries(name, fieldName, stacked) {
+		var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+			stacked: stacked,
+			name: name,
+			xAxis: xAxis,
+			yAxis: yAxis,
+			valueYField: fieldName,
+			categoryXField: "platform"
+		}));
 
-	series.columns.template.setAll({
-		tooltipText: "{categoryX}: {valueY}",
-		tooltipY: 0,
-		strokeOpacity: 0,
-		templateField: "columnSettings"
-	});
+		series.columns.template.setAll({
+			tooltipText: "{name}, {categoryX}:{valueY}",
+			width: am5.percent(90),
+			tooltipY: am5.percent(10)
+		});
+		series.data.setAll(data);
 
-	series.data.setAll(data);
+		// Make stuff animate on load
+		series.appear();
+
+		series.bullets.push(function() {
+			return am5.Bullet.new(root, {
+				locationY: 0.5,
+				sprite: am5.Label.new(root, {
+					text: "{valueY}",
+					fill: root.interfaceColors.get("alternativeText"),
+					centerY: am5.percent(50),
+					centerX: am5.percent(50),
+					populateText: true
+				})
+			});
+		});
+
+		legend.data.push(series);
+	}
+
+	makeSeries("Ventas", "ventas", false);
+	makeSeries("Aprovisionamiento", "aprov", true);
 
 
 	// Make stuff animate on load
-	// https://www.amcharts.com/docs/v5/concepts/animations/
-	series.appear();
 	chart.appear(1000, 100);
 
 }); // end am5.ready()

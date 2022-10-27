@@ -7,18 +7,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class GraficaBarras {
 
-	public GraficaBarras() { }
+	String platform;
+	Long ventas;
+	Long aprov;
 
-
-	String servicio;
-	int visits;
-	String icon;
-	Fill columnSettings;
-
-
-	@Data
-	@AllArgsConstructor
-	public class Fill {
-		String fill;
-	}
 }
