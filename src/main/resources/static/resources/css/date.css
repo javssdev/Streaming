@@ -105,3 +105,92 @@
       -webkit-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
       -moz-box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important;
       box-shadow: 0px 5px 13px 0px rgba(0, 0, 0, 0.14) !important; }
+      
+/*------------------------------------------------------------------*/
+.datetimepicker-inline {
+	background: #fff;
+	position: absolute;
+	z-index: 10;
+	border-radius: 10px;
+	box-shadow: 0px 0px 6px #ccc;
+	top: 100%;
+	left: calc(50% - 110px);
+	right: 0;
+	margin: auto;
+	display: none;
+}
+
+.datepicker-dropdown {
+	padding: 1rem;
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+	border: #ccc;
+}
+
+.datepicker-dropdown .table-condensed {
+	width: 15vw;
+}
+
+.datepicker-dropdown .table-condensed .prev, .datepicker-dropdown .table-condensed .next
+	{
+	text-align: center;
+}
+
+.datepicker-dropdown .table-condensed .prev .icon-arrow-left,
+	.datepicker-dropdown .table-condensed .next .icon-arrow-right {
+	color: var(--color-dark);
+	font-weight: 900;
+	font-family: 'Font Awesome 6 Free';
+	-webkit-font-smoothing: antialiased;
+	display: var(- -fa-display, inline-block);
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1;
+	text-rendering: auto;
+}
+
+.datepicker-dropdown .table-condensed .prev .icon-arrow-left:before {
+	content: "\f053";
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.datepicker-dropdown .table-condensed .next .icon-arrow-right:before {
+	content: "\f054";
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.datepicker-dropdown .table-condensed .switch {
+	cursor: pointer;
+	text-align: center;
+	color: var(--color-dark);
+}
+
+.datepicker-dropdown .table-condensed .day {
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.datepicker-dropdown .table-condensed .day:hover {
+	background: #cccccc;
+}
+
+.datepicker-dropdown .table-condensed .day.active {
+	background: var(--color-info);
+	color: #fff;
+}
+
+.datepicker-dropdown .table-condensed .month, .datepicker-dropdown .table-condensed .year
+	{
+	padding: 0.5rem;
+	font-weight: 500;
+	cursor: pointer;
+	text-align: center;
+}
+
+.datepicker-dropdown .table-condensed .month:hover, .datepicker-dropdown .table-condensed .year:hover
+	{
+	background: #cccccc;
+	border-radius: 5px;
+}
