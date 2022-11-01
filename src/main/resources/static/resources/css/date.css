@@ -127,7 +127,8 @@
 }
 
 .datepicker-dropdown .table-condensed {
-	width: 16rem;
+	width: 22rem;
+    height: 18rem;
 }
 
 .datepicker-dropdown .table-condensed .prev, .datepicker-dropdown .table-condensed .next
