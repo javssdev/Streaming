@@ -69,9 +69,16 @@ public class SaludSistemaController {
 					model.addAttribute("list", list);
 					break;
 				case Cs.ETA_GES:
+					filters = new HashMap<>();
+					filters.put("etapa", etapa);
+					filters.put("estatusG3", "Pendiente");
+					listInter = dbo.find(Intercambio.class, filters, null);
+					model.addAttribute("list", listInter);
+					break;
 				case Cs.ETA_ACO:
 					filters = new HashMap<>();
 					filters.put("etapa", etapa);
+					filters.put("estatuPlem", "Pendiente");
 					listInter = dbo.find(Intercambio.class, filters, null);
 					model.addAttribute("list", listInter);
 					break;

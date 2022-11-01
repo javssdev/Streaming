@@ -1,8 +1,8 @@
 package com.tmx.dashboard.database;
 
 import java.lang.reflect.Field;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +32,7 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 	@Override
 	public Long count(Class<T> clazz, Map<String, Object> fields, Object[] between) {
-		Long total = 0L;
+		Long total;
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Long> query = builder.createQuery(Long.class);
 		Root<T> r = query.from(clazz);
@@ -88,8 +88,8 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 	}
 
 	@Override
-	public Integer deleteById(Class<T> clazz, Object ID) {
-		T entity = em.find(clazz, ID);
+	public Integer deleteById(Class<T> clazz, Object id) {
+		T entity = em.find(clazz, id);
 		em.remove(entity);
 		return null;
 	}
@@ -106,7 +106,7 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 	@Override
 	public List<T> find(Class<T> clazz, Map<String, Object> fields, String[] order) {
-		List<T> list = new ArrayList<>();
+		List<T> list;
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<T> criteria = builder.createQuery(clazz);
 		Root<T> root = criteria.from(clazz);
@@ -126,7 +126,7 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 	@Override
 	public List<T> findAll(Class<T> clazz, String[] order) {
-		List<T> list = new ArrayList<>();
+		List<T> list;
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<T> criteria = builder.createQuery(clazz);
 		Root<T> root = criteria.from(clazz);
@@ -162,18 +162,44 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 		return PageableExecutionUtils.getPage(typedQuery.getResultList(), pageable, () -> count);
 	}
 
+	public Page<T> searchInfo(Class<T> clazz, Map<String, Object> fields, String[] order, Pageable pageable) {
+
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+
+		//Total de registros
+		CriteriaQuery<Long> countQuery = builder.createQuery(Long.class);
+		countQuery.select(builder.count(countQuery.from(clazz)));
+		Long count = em.createQuery(countQuery).getSingleResult();
+
+		CriteriaQuery<T> criteria = builder.createQuery(clazz);
+		Root<T> root = criteria.from(clazz);
+
+		if (fields != null) {
+			List<Predicate> predicates = getParametersFilter(builder, root, fields, null);
+			criteria.where(builder.or(predicates.toArray(new Predicate[predicates.size()])));
+		}
+
+		if (order != null)
+			criteria.orderBy((order[1].equalsIgnoreCase("DESC")) ? builder.desc(root.get(order[0])) : builder.asc(root.get(order[0])));
+
+		TypedQuery<T> typedQuery = em.createQuery(criteria);
+		typedQuery.setFirstResult((int) pageable.getOffset());
+		typedQuery.setMaxResults(pageable.getPageSize());
+
+		return PageableExecutionUtils.getPage(typedQuery.getResultList(), pageable, () -> count);
+	}
+
 	@Override
-	public T findById(Class<T> clazz, Object ID) {
-		T entity = em.find(clazz, ID);
-		return entity;
+	public T findById(Class<T> clazz, Object id) {
+		return em.find(clazz, id);
 	}
 
 	public List<Predicate> getParametersFilter(CriteriaBuilder builder, Root<T> root, Map<String, Object> filters, Object[] between) {
-		List<Predicate> predicates = new ArrayList<Predicate>();
+		List<Predicate> predicates = new ArrayList<>();
 		if(between != null){
 			switch (((String) between[0]).split("_")[0]) {
 			case "DATE":
-				predicates.add(builder.between(root.get(((String) between[0]).split("_")[1]), (Date) between[1], (Date)between[2]));
+				predicates.add(builder.between(root.get(((String) between[0]).split("_")[1]), (Timestamp) between[1], (Timestamp) between[2]));
 				break;
 			case "LONG":
 				predicates.add(builder.between(root.get(((String) between[0]).split("_")[1]), (Long) between[1], (Long)between[2]));
@@ -186,11 +212,11 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 
 		if (filters != null && !filters.isEmpty()) {
 			filters.forEach((k, v) -> {
-				if((Object)filters.get(k) instanceof String[]){
+				if(filters.get(k) instanceof String[]){
 					for (int i = 0; i < ((String[]) filters.get(k)).length; i++) {
-						predicates.add(builder.equal(root.get((String) k), ((String[]) filters.get(k))[i]));
+						predicates.add(builder.equal(root.get(k), ((String[]) filters.get(k))[i]));
 					}
-				}else{ predicates.add(builder.equal(root.get((String) k), (Object)filters.get(k))); }
+				}else{ predicates.add(builder.equal(root.get(k), filters.get(k))); }
 			});
 		}
 		return predicates;
@@ -199,10 +225,9 @@ public class DatabaseOperationsImpl<T> implements DatabaseOperations<T> {
 	public CriteriaUpdate<T> getParametersUpdate(Class<T> clazz, CriteriaUpdate<T> update, Root<T> root, T entity) {
 		Field[] fields = clazz.getDeclaredFields();
 		for (Field field : fields) {
-			field.setAccessible(true);
 			try {
 				if(field.get(entity) != null)
-					update.set(root.get(field.getName().toString()), field.get(entity));
+					update.set(root.get(field.getName()), field.get(entity));
 			} catch (IllegalArgumentException | IllegalAccessException e) {
 				e.printStackTrace();
 			}

@@ -73,9 +73,6 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:if="${list.size() == 0}">
-											<td colspan="8" align="center"><span class="tncb s3">- No se encontraron registros -</span></td>
-										</tr>
 										<tr th:if="${list.size() > 0 and etapa == 'VAL'}" th:each="o, itr: ${list}">
 											<td><span class="text-xg tnrr s1" th:text="${itr.count}"></span></td>
 											<td align="center"><span class="text-xg tnrr s1" th:text="${o.folioSolicitud}"></span></td>
@@ -108,7 +105,10 @@
 	</main>
 	<script type="text/javascript" th:inline="javascript">
 		function retrieveList(etapa){
-			$('#resultList').load('/semafaro/'+etapa);
+			$('#resultList').load('/semafaro/'+etapa, function() {
+				show.loading('hide');
+			});
+			show.loading('show');
 		}
 
 		//var end = new Date('00/00/0000 9:30 AM');

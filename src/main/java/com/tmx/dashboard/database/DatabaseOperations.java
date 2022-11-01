@@ -18,6 +18,7 @@ public interface DatabaseOperations<T> {
 	public List<T> find(Class<T> clazz, Map<String, Object> fields, String[] order);
 	public List<T> findAll(Class<T> clazz, String[] order);
 	public Page<T> findAll(Class<T> clazz, String[] order, Pageable pageable);
+	public Page<T> searchInfo(Class<T> clazz, Map<String, Object> fields, String[] order, Pageable pageable);
 	public T findById(Class<T> clazz, Object ID);
 	public Long count(Class<T> clazz, Map<String, Object> fields, Object[] between);
 	/* ................................................................................. GLOBAL DB-CRUD CONFIG - FIN */

@@ -26,43 +26,42 @@
 							<h5 class="text-pr text-primary tncb s6">Compatrativos de Ventas/Aprovisionamiento en Servicios de Entretenimiento</h5>
 						</div>
 						<div class="card-body p-4">
-							<!-- Chart code -->
-							<script th:inline="javascript">
-							    var dataBar = /*[[${dataBar}]]*/ null;
-							</script>
-							<script src="./resources/js/charts/charts-vtas-aprov.js"></script>
-
 							<!-- HTML -->
 							<div class="row">
-								<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+								<div id="ventasResult" th:fragment="data" class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+									<!-- Chart code -->
+									<script th:inline="javascript">
+									    var ventas = /*[[${ventas}]]*/ null;
+									</script>
+									<script src="./resources/js/charts/charts-vtas-aprov.js"></script>
+
 									<div id="chartdiv"></div>
 								</div>
 								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center px-5">
+								<form id="ventasForm" class="needs-validation" novalidate method="post" style="width: 100%;">
 									<br />
 									<h3 class="h5">Selecciona fechas para comparar</h3>
 									<div class="input-group">
 										<div class="w-100">
 											<div class="form-group">
 												<div class="input-group date" id="id_0">
-													<span class="input-group-text">De</span> <input type="text"
-														value="" class="form-control px-3"
-														placeholder="MM/DD/YYYY hh:mm:ss" required />
+													<span class="input-group-text">De</span> 
+													<input type="text" id="f_ini"
+														value="" class="form-control px-3 input-calendar" placeholder="YYYY-MM-DD" required />
+													<div class="invalid-feedback">Selecciona una inicial.</div>
 												</div>
 												<hr />
 												<div class="input-group date" id="id_1">
-													<span class="input-group-text">Hasta</span> <input
-														type="text" value="" class="form-control px-3"
-														placeholder="MM/DD/YYYY hh:mm:ss" required />
+													<span class="input-group-text">Hasta</span>
+													<input type="text" id="f_fin"
+														value="" class="form-control px-3 input-calendar" placeholder="YYYY-MM-DD" required />
+													<div class="invalid-feedback">Selecciona una final.</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<nav class="navbar bg-transparent shadow-none p-0">
-										<div class="container-fluid justify-content-center">
-											<a class="navbar-brand text-info fw-bold fs-5 text-date-chart text-wrap text-center" href="#">del 01 de Enero al 31 de Diciembre 2022</a>
-										</div>
-									</nav>
-									<button type="button" class="btn btn-dark mt-3">APLICAR</button>
+									<button type="button" class="btn btn-dark mt-3" onclick="retrieveData('ventas',$('#f_ini').val(), $('#f_fin').val());">APLICAR</button>
+								</form>
 								</div>
 								
 							</div>
@@ -78,43 +77,40 @@
 							<h5 class="text-pr text-primary tncb s6">Compatrativos de Ventas/Bajas en Servicios de Entretenimiento</h5>
 						</div>
 						<div class="card-body p-4">
-							<!-- Chart code -->
-							<script th:inline="javascript">
-								var dataBar = /*[[${dataBar}]]*/ null;
-							</script>
-							<script src="./resources/js/charts/charts-vtas-bajas.js"></script>
-
 							<!-- HTML -->
 							<div class="row">
-								<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+								<div id="bajasResult" th:fragment="bajasData" class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+									<!-- Chart code -->
+									<script th:inline="javascript">
+										var bajas = /*[[${bajas}]]*/ null;
+									</script>
+									<script src="./resources/js/charts/charts-vtas-bajas.js"></script>
+							
 									<div id="chart-vtas-bajas" style="width: 100%;height: 300px;"></div>
 								</div>
 								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center px-5">
+								<form id="bajasForm" class="needs-validation" novalidate method="post" style="width: 100%;">
 									<br />
 									<h3 class="h5">Selecciona fechas para comparar</h3>
 									<div class="input-group">
 										<div class="w-100">
 											<div class="form-group">
 												<div class="input-group date" id="id_0">
-													<span class="input-group-text">De</span> <input type="text"
-														value="" class="form-control px-3"
-														placeholder="MM/DD/YYYY hh:mm:ss" required />
+													<span class="input-group-text">De</span>
+													<input type="text" id="fb_ini"
+														value="" class="form-control px-3 input-calendar" placeholder="YYYY-MM-DD" required />
 												</div>
 												<hr />
 												<div class="input-group date" id="id_1">
-													<span class="input-group-text">Hasta</span> <input
-														type="text" value="" class="form-control px-3"
-														placeholder="MM/DD/YYYY hh:mm:ss" required />
+													<span class="input-group-text">Hasta</span>
+													<input type="text" id="fb_fin"
+														value="" class="form-control px-3 input-calendar" placeholder="YYYY-MM-DD" required />
 												</div>
 											</div>
 										</div>
 									</div>
-									<nav class="navbar bg-transparent shadow-none p-0">
-										<div class="container-fluid justify-content-center">
-											<a class="navbar-brand text-info fw-bold fs-5 text-date-chart text-wrap text-center" href="#">del 01 de Enero al 31 de Diciembre 2022</a>
-										</div>
-									</nav>
-									<button type="button" class="btn btn-dark mt-3">APLICAR</button>
+									<button type="button" class="btn btn-dark mt-3" onclick="retrieveData('bajas',$('#fb_ini').val(), $('#fb_fin').val());">APLICAR</button>
+								</form>
 								</div>
 								
 							</div>
@@ -130,53 +126,47 @@
 							<h5 class="text-pr text-primary tncb s6">Comportamiento en las Ventas/Aprovisionamiento por Entretenimiento</h5>
 						</div>
 						<div class="card-body p-4">
-							
-							
-							<!-- Chart code -->
-							<script src="./resources/js/charts/controlChart.js"></script>
-
 							<!-- HTML -->
 							<div class="row">
-								<div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
-									<div id="controlChartdiv"></div>
+								<div id="compareResult" th:fragment="compareData" class="col-xxl-9 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+									<script th:inline="javascript">
+										var comparative = /*[[${comparative}]]*/ null;
+									</script>
+									<script src="./resources/js/charts/chart-comparative-vtas.js"></script>
+
+									<div id="chart-comparative-vtas" style="width: 100%;height: 300px;"></div>
 								</div>
 								<div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 text-center px-5">
-									<select class="form-select"
-										aria-label="Default select example">
-										<option selected>Plataformas</option>
-										<option value="1">NETFLIX</option>
-										<option value="2">Disney +</option>
-										<option value="3">Star +</option>
-										<option value="3">HBO +</option>
-										<option value="3">Prime</option>
-										<option value="3">Star tv</option>
-										<option value="3">F1</option>
-									</select>
+								<form id="formCompare" class="needs-validation" novalidate method="post" style="width: 100%;">
+									<div class="mb-3">
+										<label for="plataforma" class="form-label tncb s1">Plataforma</label> 
+										<select id="plataforma" name="plataforma" class="form-select form-select-lg mb-3" required >
+											<option selected disabled value="">...</option>
+											<option th:each="p, itr: ${listPlatform}" th:value="${p.descripcion}" th:text="${p.descripcion}"></option>
+										</select>
+										<div class="invalid-feedback">Selecciona una plataforma.</div>
+									</div>
 									<hr/>
 									<h3 class="h5">Selecciona fechas para comparar</h3>
 									<div class="input-group">
 										<div class="w-100">
 											<div class="form-group">
 												<div class="input-group date">
-													<span class="input-group-text">De</span> <input type="text"
-														value="" class="form-control px-3"
-														placeholder="MM/DD/YYYY hh:mm:ss" required />
+													<span class="input-group-text">De</span>
+													<input type="text" id="fc_ini"
+														value="" class="form-control px-3 input-calendar" placeholder="YYYY-MM-DD" required />
 												</div>
 												<hr />
 												<div class="input-group date">
-													<span class="input-group-text">Hasta</span> <input
-														type="text" value="" class="form-control px-3"
-														placeholder="MM/DD/YYYY hh:mm:ss" required />
+													<span class="input-group-text">Hasta</span>
+													<input type="text" id="fc_fin"
+														value="" class="form-control px-3 input-calendar" placeholder="YYYY-MM-DD" required />
 												</div>
 											</div>
 										</div>
 									</div>
-									<nav class="navbar bg-transparent shadow-none p-0">
-										<div class="container-fluid justify-content-center">
-											<a class="navbar-brand text-info fw-bold fs-5 text-date-chart text-wrap text-center" href="#">del 01 de Enero al 31 de Diciembre 2022</a>
-										</div>
-									</nav>
-									<button type="button" class="btn btn-dark mt-3">APLICAR</button>
+									<button type="button" class="btn btn-dark mt-3" onclick="compareData($('#plataforma').val(),$('#fc_ini').val(), $('#fc_fin').val());">APLICAR</button>
+								</form>
 								</div>
 							</div>
 						</div>
@@ -187,28 +177,59 @@
 		</div>
 	</main>
 
-	<SCRIPT>
-		(function($) {
-			"use strict";
-			$('.date').datetimepicker({
-				allowInputToggle : true,
-				showClose : true,
-				showClear : true,
-				showTodayButton : true,
-				format : "MM/DD/YYYY hh:mm:ss A",
-				icons : {
-					time : 'fa fa-clock-o',
-					date : 'fa fa-calendar-o',
-					up : 'fa fa-chevron-up',
-					down : 'fa fa-chevron-down',
-					previous : 'fa fa-chevron-left',
-					next : 'fa fa-chevron-right',
-					today : 'fa fa-chevron-up',
-					clear : 'fa fa-trash',
-					close : 'fa fa-close'
-				},
+	<script type="text/javascript">
+		function retrieveData(tipo, fechaIni, fechaFin){
+			if(fechaIni == '' || fechaFin == ''){
+				var element = document.getElementById(tipo+'Form');
+				element.classList.add("was-validated");
+				return;
+			}
+
+			if (Date.parse(fechaFin) < Date.parse(fechaIni)) {
+				alert('La fecha final no puede ser menor a la fecha inicial');
+				return;
+			}
+
+			$('#'+tipo+'Result').load('/'+tipo+'/'+fechaIni+'/'+fechaFin, function() {
+				show.loading('hide');
 			});
-		})(jQuery);
+			show.loading('show');
+		}
+
+		function compareData(plataforma, fechaIni, fechaFin) {
+			if (plataforma == null || fechaIni == '' || fechaFin == '') {
+				var element = document.getElementById("formCompare");
+				element.classList.add("was-validated");
+				return;
+			} 
+			
+			if (Date.parse(fechaFin) < Date.parse(fechaIni)) {
+				alert('La fecha final no puede ser menor a la fecha inicial');
+				return;
+			}
+
+			var fecha1 = moment(fechaIni);
+			var fecha2 = moment(fechaFin);
+
+			console.log(fecha2.diff(fecha1, 'days'), ' dias de diferencia');
+			if(fecha2.diff(fecha1, 'days') > 20){
+				alert('El rango entre ambas fechas no puede ser mayor a 20 dias');
+				return;
+			}
+
+			$('#compareResult').load('compare/'+fechaIni+'/'+fechaFin+'/'+plataforma, function() {
+				show.loading('hide');
+			});
+			show.loading('show');
+		}
+
+
+		$(document).ready(function() {
+			$('.input-calendar').datepicker({
+				language: 'es',
+				format: 'yyyy-mm-dd'
+			});
+		});
 	</script>
 </body>
 </html>

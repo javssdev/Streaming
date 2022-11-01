@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class GraficaBarras {
+public class GraficaComparative {
 
-	private String platform;
+	private String date;
 	private Long ventas;
 	private Long aprov;
-
+	
 }

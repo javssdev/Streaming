@@ -123,27 +123,27 @@ public class Solicitud implements Serializable{
 	@Column(name = "STRCLIKURL")
 	private Long numVecesClickUrl = 0L;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHMOV")
 	private Date fechaMov = new Date();
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHINS")
 	private Date fechaReg = new Date();
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHMOD")
 	private Date fechaUltAct = new Date();
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHERR")
 	private Date fechaError = new Date();
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHURLVI")
 	private Date fechaVigURL = new Date();
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHURLC")
 	private Date fechaConfUrl = new Date();
 }

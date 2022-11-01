@@ -59,22 +59,22 @@ public class Inventario implements Serializable {
 	@Column(name = "STRNUMCONT")
 	private String numVecesCont;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHBAJA")
 	private Date fechaBaja;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHAPROV")
 	private Date fechaAprov;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHINS")
 	private Date fechaReg;
 
 	@Column(name = "STRUSRINS")
 	private String userRegistro;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "STRFHMOD")
 	private Date fechaUltimaAct;
 

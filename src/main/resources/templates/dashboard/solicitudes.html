@@ -20,7 +20,14 @@
 							<i class="fa-regular fa-rectangle-list card_header_icon"></i>
 							<h5 class="text-pr text-primary tncb s6">Visor de Solicitudes</h5>
 						</div>
-						<div class="card-body p-4">
+						<div class="input-group mb-3 card-header pb-0">
+									<input type="text" class="form-control" name="search" id="search" />
+									<button type="button" class="btn btn-primary" onclick="retrieveList($('#search').val());" style="margin:2px;">
+										<i class="fas fa-search"></i>
+									</button>
+							
+						</div>
+						<div id="resultList" th:fragment="data" class="card-body p-4">
 							<div class="table-responsive">
 								<table class="table align-items-center justify-content-center mb-0 table-striped table-bordered table-responsive">
 									<thead>
@@ -77,5 +84,18 @@
 		</div>
 	</main>
 
+	<script type="text/javascript" th:inline="javascript">
+		function retrieveList(filtro){
+			if(filtro == ''){
+				show.loading('show');
+				window.location.reload();
+			}else{
+				$('#resultList').load('/search/'+filtro, function() {
+					show.loading('hide');
+				});
+				show.loading('show');
+			}
+		}
+	</script>
 </body>
 </html>

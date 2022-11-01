@@ -12,10 +12,6 @@ am5.ready(function() {
 
 	// Create chart
 	var chart = root.container.children.push(am5xy.XYChart.new(root, {
-		panX: false,
-		panY: false,
-		wheelX: "panX",
-		wheelY: "zoomX",
 		layout: root.verticalLayout
 	}));
 
@@ -28,7 +24,7 @@ am5.ready(function() {
 		})
 	);
 
-	var data = dataBar;
+	var data = bajas;
 
 
 	// Create axes
