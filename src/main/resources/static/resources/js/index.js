@@ -125,3 +125,12 @@ var show = (function (){
 		modal: X99200,
 	}
 })();
+
+
+$(document).ready(function() {
+	$('.input-calendar').datepicker({
+		language: 'es',
+		format: 'yyyy-mm-dd',
+		autoclose: true
+	});
+});
